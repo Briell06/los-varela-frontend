@@ -13,7 +13,7 @@ import { ThemeSwitch } from "./theme-switch";
 
 const Navbar = () => {
   return (
-    <HeroNavbar isBordered className="py-2">
+    <HeroNavbar shouldHideOnScroll isBordered className="py-2">
       <NavbarBrand className="flex-1 gap-2">
         <Image
           alt="Logo"
