@@ -34,9 +34,6 @@ export const product = defineType({
       name: "image",
       title: "Imagen",
       type: "image",
-      options: {
-        hotspot: true,
-      },
       validation: (Rule) => Rule.required().error("El campo es requerido"),
     }),
     defineField({
