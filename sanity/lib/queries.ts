@@ -6,6 +6,6 @@ export const productsQuery = defineQuery(`
     title,
     price,
     description,
-    "slug": slug.current,
-    "image": image.asset->url
+    slug,
+    image
   }`);
