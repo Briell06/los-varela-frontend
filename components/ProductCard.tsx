@@ -3,7 +3,8 @@ import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Input } from "@heroui/input";
-import Link from "next/link";
+import NextImage from "next/image";
+import { default as Link } from "next/link";
 import { MdAdd, MdRemove, MdShoppingCart } from "react-icons/md";
 
 interface Props {
@@ -14,7 +15,13 @@ const ProductCard = ({ product }: Props) => {
   return (
     <Card>
       <Link href={`/productos/${product.slug}`}>
-        <Image alt="Imagen del producto" src={product.image ?? ""} />
+        <Image
+          as={NextImage}
+          alt="Imagen del producto"
+          width={400}
+          height={300}
+          src={product.image ?? ""}
+        />
       </Link>
       <CardBody>
         <h2 className="text-2xl font-bold">{product.title}</h2>
