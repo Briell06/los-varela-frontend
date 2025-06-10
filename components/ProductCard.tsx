@@ -1,3 +1,4 @@
+import { urlFor } from "@/sanity/lib/image";
 import { ProductsQueryResult } from "@/sanity/types";
 import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter } from "@heroui/card";
@@ -5,13 +6,16 @@ import { Image } from "@heroui/image";
 import { Input } from "@heroui/input";
 import NextImage from "next/image";
 import { default as Link } from "next/link";
-import { MdAdd, MdRemove, MdShoppingCart } from "react-icons/md";
+import { MdAdd, MdRemove } from "react-icons/md";
+import ShoppingCartButton from "./ShoppingCartButton";
 
 interface Props {
   product: ProductsQueryResult[0];
 }
 
 const ProductCard = ({ product }: Props) => {
+  const imageUrl = product.image ? urlFor(product.image).url() : "";
+
   return (
     <Card>
       <Link href={`/productos/${product.slug}`}>
@@ -25,29 +29,27 @@ const ProductCard = ({ product }: Props) => {
       </Link>
       <CardBody>
         <h2 className="text-2xl font-bold">{product.title}</h2>
-        <p>{product.description}</p>
-        <p>{product.price?.toFixed(2)}</p>
+        <p className="text-blue-500">{product.price?.toFixed(2)} USD</p>
       </CardBody>
       <CardFooter>
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-1">
-            <Button isIconOnly variant="ghost">
+            <Button isIconOnly variant="light">
               <MdAdd />
             </Button>
             <div className="w-12">
               <Input
-                classNames={{ input: "text-center", inputWrapper: "p-0" }}
+                className=""
+                classNames={{ input: "text-center" }}
                 type="number"
                 placeholder="1"
               />
             </div>
-            <Button isIconOnly variant="ghost">
+            <Button isIconOnly variant="light">
               <MdRemove />
             </Button>
           </div>
-          <Button color="primary">
-            <MdShoppingCart /> Añadir al carrito
-          </Button>
+          <ShoppingCartButton />
         </div>
       </CardFooter>
     </Card>
