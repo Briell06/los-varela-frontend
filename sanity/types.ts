@@ -199,20 +199,31 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: productsQuery
-// Query: *[_type == "product"] {    _id,    title,    price,    description,    "slug": slug.current,    "image": image.asset->url  }
+// Query: *[_type == "product"] {    _id,    title,    price,    description,    slug,    image  }
 export type ProductsQueryResult = Array<{
   _id: string;
   title: string | null;
   price: number | null;
   description: string | null;
-  slug: string | null;
-  image: string | null;
+  slug: Slug | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
 }>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "product"] {\n    _id,\n    title,\n    price,\n    description,\n    "slug": slug.current,\n    "image": image.asset->url\n  }': ProductsQueryResult;
+    '\n  *[_type == "product"] {\n    _id,\n    title,\n    price,\n    description,\n    slug,\n    image\n  }': ProductsQueryResult;
   }
 }

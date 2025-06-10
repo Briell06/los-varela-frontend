@@ -14,7 +14,7 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
-  const imageUrl = product.image ? urlFor(product.image).url() : "";
+  const imageUrl = product.image?.asset ? urlFor(product.image).url() : "";
 
   return (
     <Card>
@@ -24,7 +24,7 @@ const ProductCard = ({ product }: Props) => {
           alt="Imagen del producto"
           width={400}
           height={300}
-          src={product.image ?? ""}
+          src={imageUrl}
         />
       </Link>
       <CardBody>
