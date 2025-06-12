@@ -1,13 +1,13 @@
 import ProductCard from "@/components/ProductCard";
-import { client } from "@/sanity/lib/client";
-import { productsQuery } from "@/sanity/lib/queries";
+import { productsQuery } from "@/config/queries";
+
 const ProductsPage = async () => {
-  const products = await client.fetch(productsQuery);
+  const products = await productsQuery();
 
   return (
-    <section className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+    <section className="grid gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
       {products.map((product) => (
-        <ProductCard key={product._id} product={product} />
+        <ProductCard key={product.id} product={product} />
       ))}
     </section>
   );

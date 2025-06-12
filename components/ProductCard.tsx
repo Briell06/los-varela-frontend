@@ -1,54 +1,33 @@
-import { urlFor } from "@/sanity/lib/image";
-import { ProductsQueryResult } from "@/sanity/types";
-import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
-import { Input } from "@heroui/input";
-import NextImage from "next/image";
 import { default as Link } from "next/link";
-import { MdAdd, MdRemove } from "react-icons/md";
 import ShoppingCartButton from "./ShoppingCartButton";
+import { Product } from "@/config/types";
+import CardFooterForm from "@/components/CardFooterForm";
 
 interface Props {
-  product: ProductsQueryResult[0];
+  product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
-  const imageUrl = product.image?.asset ? urlFor(product.image).url() : "";
-
   return (
-    <Card>
+    <Card className="shrink-0">
       <Link href={`/productos/${product.slug}`}>
         <Image
-          as={NextImage}
+          // as={NextImage}
           alt="Imagen del producto"
           width={400}
           height={300}
-          src={imageUrl}
+          src={product.image}
         />
       </Link>
       <CardBody>
         <h2 className="text-2xl font-bold">{product.title}</h2>
-        <p className="text-blue-500">{product.price?.toFixed(2)} USD</p>
+        <p className="text-blue-500">{product.price.toFixed(2)} USD</p>
       </CardBody>
       <CardFooter>
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center gap-1">
-            <Button isIconOnly variant="light">
-              <MdAdd />
-            </Button>
-            <div className="w-12">
-              <Input
-                className=""
-                classNames={{ input: "text-center" }}
-                type="number"
-                placeholder="1"
-              />
-            </div>
-            <Button isIconOnly variant="light">
-              <MdRemove />
-            </Button>
-          </div>
+        <div className="flex w-full items-center justify-between gap-2">
+          <CardFooterForm />
           <ShoppingCartButton />
         </div>
       </CardFooter>
