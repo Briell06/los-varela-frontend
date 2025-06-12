@@ -2,7 +2,7 @@ import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { default as Link } from "next/link";
 import ShoppingCartButton from "./ShoppingCartButton";
-import { Product } from "@/config/types";
+import { Product } from "@/types";
 import CardFooterForm from "@/components/CardFooterForm";
 
 interface Props {

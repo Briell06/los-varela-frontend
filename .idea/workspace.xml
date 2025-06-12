@@ -4,37 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb5323d4-df3a-46b2-b899-67e607be9f6c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/CardFooterForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/FooterInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/queries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/productos/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/productos/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/productos/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/studio/[[...tool]]/page.tsx" beforeDir="false" />
+    <list default="true" id="bb5323d4-df3a-46b2-b899-67e607be9f6c" name="Changes" comment="chore: remove Sanity CMS integration and related files">
+      <change afterPath="$PROJECT_DIR$/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ShoppingCartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ShoppingCartButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity-typegen.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity.cli.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/env.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/extract.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/lib/client.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/lib/image.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/lib/live.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/lib/queries.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/schemaTypes/category.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/schemaTypes/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/schemaTypes/product.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/structure.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanity/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/types.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -66,6 +41,9 @@
 }</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -110,7 +88,7 @@
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
-        <entry key="com.intellij.reactbuddy.reactComponents" value="true" />
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
         <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
         <entry key="com.intellij.reactbuddy.storybook" value="false" />
       </map>
@@ -164,11 +142,25 @@
       <workItem from="1749708081381" duration="1788000" />
       <workItem from="1749709937619" duration="323000" />
       <workItem from="1749743017788" duration="818000" />
-      <workItem from="1749743855240" duration="52000" />
+      <workItem from="1749743855240" duration="1292000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: remove Sanity CMS integration and related files">
+      <option name="closed" value="true" />
+      <created>1749743972762</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749743972762</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: remove Sanity CMS integration and related configurations" />
+    <MESSAGE value="chore: remove Sanity CMS integration and related files" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: remove Sanity CMS integration and related files" />
   </component>
 </project>
