@@ -30,7 +30,7 @@ const Navbar = () => {
         <SearchInput />
       </NavbarContent>
       <NavbarContent justify="end">
-        <ThemeSwitch className="max-md:mx-auto" />
+        <ThemeSwitch className="mx-auto" />
       </NavbarContent>
     </HeroNavbar>
   );

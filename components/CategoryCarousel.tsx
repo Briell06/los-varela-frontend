@@ -17,12 +17,12 @@ const CategoryCarousel = async () => {
       opts={{
         align: "center",
       }}
-      className="mx-auto mb-5 max-w-xs"
+      className="mx-auto mb-5 max-w-xs md:max-w-full"
     >
-      <CarouselContent className="my-5 mb-10">
+      <CarouselContent className="my-5 mb-10 md:mx-auto">
         {categories.map((category) => (
           <CarouselItem
-            className="basis-1/3 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+            className="basis-full md:basis-1/3 lg:basis-2/12"
             key={category.id}
           >
             <Card
