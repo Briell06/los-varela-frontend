@@ -13,14 +13,17 @@ interface Props {
 const HeaderLink = ({ link, href, children, className }: Props) => {
   return (
     <Button
-      className={clsx("mb-10 h-16 text-wrap text-2xl", className)}
+      className={clsx(
+        "mb-10 text-wrap font-mono text-2xl font-bold tracking-tighter",
+        className,
+      )}
       as={link ? NextLink : "div"}
       href={link ? href : undefined}
       variant="light"
       size="lg"
       startContent={link ? <FaHouse /> : <FaShop />}
     >
-      <span className="font-light">{children}</span>
+      {children}
     </Button>
   );
 };

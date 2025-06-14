@@ -12,7 +12,7 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <Card>
+    <Card isHoverable>
       <Link href={`/productos/${product.id}`}>
         <Image
           as={NextImage}
@@ -20,6 +20,7 @@ const ProductCard = ({ product }: Props) => {
           height={300}
           alt="Imagen del producto"
           src={product.image}
+          className="rounded-b-none"
         />
       </Link>
       <CardBody>

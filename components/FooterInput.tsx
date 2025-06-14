@@ -31,14 +31,14 @@ const FooterInput = () => {
         onPress={handleDecrement}
         className="rounded-full"
         color="primary"
-        variant={"flat"}
+        variant={"bordered"}
         isIconOnly
       >
         <BiMinus className="text-default-foreground" />
       </Button>
       <Input
         type="number"
-        variant="underlined"
+        variant="faded"
         color="primary"
         value={amount.toFixed().toString()}
         onChange={(e) => handleChange(e)}
@@ -50,7 +50,7 @@ const FooterInput = () => {
       <Button
         onPress={handleIncrement}
         className="rounded-full"
-        variant={"flat"}
+        variant={"bordered"}
         color="primary"
         isIconOnly
       >
