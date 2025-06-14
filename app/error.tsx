@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@heroui/button";
 import { useEffect } from "react";
+import { MdError } from "react-icons/md";
 
 export default function Error({
   error,
@@ -16,16 +18,18 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button
-        onClick={
+    <div className="grid h-screen place-content-center">
+      <h2 className="text-6xl text-danger">Algo salió mal</h2>
+      <Button
+        variant="light"
+        startContent={<MdError />}
+        onPress={
           // Attempt to recover by trying to re-render the segment
           () => reset()
         }
       >
-        Try again
-      </button>
+        Intentar de nuevo
+      </Button>
     </div>
   );
 }
