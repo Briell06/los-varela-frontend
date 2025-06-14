@@ -10,7 +10,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ProductByIdQuery, productsQuery } from "@/config/queries";
-import { Product } from "@/types";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
 
@@ -21,10 +20,10 @@ interface Props {
 const page = async ({ params }: Props) => {
   const id = (await params).id;
   const product = await ProductByIdQuery(id);
-  const categories = await productsQuery(product.category);
+  const products = await productsQuery(product.category);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
+    <>
       <div>
         <div className="grid place-content-center">
           <HeaderLink link={true} href="/productos">
@@ -56,20 +55,23 @@ const page = async ({ params }: Props) => {
         </Card>
       </div>
       <div>
-        <h4 className="mb-20 font-mono text-3xl font-bold">
+        <h4 className="mb-20 mt-10 font-mono text-3xl font-bold">
           Otros productos similares
         </h4>
         <section>
-          <Carousel className="mx-auto max-w-[95vw]">
+          <Carousel className="mx-auto w-full">
             <CarouselContent>
-              {categories.slice(0, 4).map((category: Product) => (
-                <CarouselItem
-                  className="basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-                  key={category.id}
-                >
-                  <ProductCard product={category} />
-                </CarouselItem>
-              ))}
+              {products
+                .filter((product) => product.id !== id)
+                .slice(0, 4)
+                .map((product) => (
+                  <CarouselItem
+                    className="basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                    key={product.id}
+                  >
+                    <ProductCard product={product} />
+                  </CarouselItem>
+                ))}
             </CarouselContent>
             <div className="absolute -top-10 right-16">
               <CarouselPrevious />
@@ -78,7 +80,7 @@ const page = async ({ params }: Props) => {
           </Carousel>
         </section>
       </div>
-    </div>
+    </>
   );
 };
 
