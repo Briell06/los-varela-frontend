@@ -24,7 +24,7 @@ const page = async ({ params }: Props) => {
   const categories = await productsQuery(product.category);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-20">
+    <div className="flex flex-col items-center justify-center gap-10">
       <div>
         <div className="grid place-content-center">
           <HeaderLink link={true} href="/productos">
