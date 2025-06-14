@@ -1,20 +1,19 @@
-import { Form } from "@heroui/form";
 import { Image } from "@heroui/image";
-import { Input } from "@heroui/input";
 import {
   Navbar as HeroNavbar,
   NavbarBrand,
   NavbarContent,
 } from "@heroui/navbar";
 import NextImage from "next/image";
+import NextLink from "next/link";
 
-import { SearchIcon } from "./icons";
+import SearchInput from "./SearchInput";
 import { ThemeSwitch } from "./theme-switch";
 
 const Navbar = () => {
   return (
     <HeroNavbar shouldHideOnScroll isBordered className="py-2">
-      <NavbarBrand className="flex-1 gap-2">
+      <NavbarBrand as={NextLink} href={"/productos"} className="flex-1 gap-2">
         <Image
           alt="Logo"
           as={NextImage}
@@ -28,14 +27,7 @@ const Navbar = () => {
       </NavbarBrand>
 
       <NavbarContent justify="center">
-        <Form action="/productos">
-          <Input
-            endContent={<SearchIcon />}
-            name="query"
-            placeholder="Buscar..."
-            variant="faded"
-          />
-        </Form>
+        <SearchInput />
       </NavbarContent>
       <NavbarContent justify="end">
         <ThemeSwitch className="max-md:mx-auto" />
