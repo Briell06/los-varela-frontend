@@ -13,10 +13,7 @@ interface Props {
 const HeaderLink = ({ link, href, children, className }: Props) => {
   return (
     <Button
-      className={clsx(
-        "mb-10 text-wrap font-mono text-2xl font-bold tracking-tighter",
-        className,
-      )}
+      className={clsx("mb-10 text-wrap text-2xl font-bold", className)}
       as={link ? NextLink : "div"}
       href={link ? href : undefined}
       variant="light"
