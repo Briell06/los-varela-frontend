@@ -18,7 +18,7 @@ const Navbar = () => {
         <Image
           alt="Logo"
           as={NextImage}
-          className="min-w-[55px] min-h-[55px] max-w-[55px] max-h-[55px]"
+          className="max-h-[55px] min-h-[55px] min-w-[55px] max-w-[55px]"
           height={55}
           radius="full"
           src="/logo.jpg"
@@ -28,17 +28,17 @@ const Navbar = () => {
       </NavbarBrand>
 
       <NavbarContent justify="center">
-        <Form action="/">
+        <Form action="/productos">
           <Input
             endContent={<SearchIcon />}
-            name="search"
+            name="query"
             placeholder="Buscar..."
             variant="faded"
           />
         </Form>
       </NavbarContent>
       <NavbarContent justify="end">
-        <ThemeSwitch className=" max-md:mx-auto" />
+        <ThemeSwitch className="max-md:mx-auto" />
       </NavbarContent>
     </HeroNavbar>
   );

@@ -6,12 +6,12 @@ interface Props {
 }
 const HomeLayout = ({ children }: Props) => {
   return (
-    <div className="relative flex flex-col h-screen">
+    <div className="relative flex h-screen flex-col">
       <Navbar />
-      <main className="container flex-grow px-6 pt-16 mx-auto max-w-7xl">
+      <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
         {children}
       </main>
-      <footer className="flex items-center justify-center w-full py-3">
+      <footer className="flex w-full items-center justify-center py-3">
         Footer
       </footer>
     </div>
