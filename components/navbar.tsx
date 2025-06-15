@@ -13,7 +13,7 @@ import { ThemeSwitch } from "./theme-switch";
 const Navbar = () => {
   return (
     <HeroNavbar shouldHideOnScroll isBordered className="py-2">
-      <NavbarBrand as={NextLink} href={"/productos"} className="flex-1 gap-2">
+      <NavbarBrand as={NextLink} href={"/"} className="flex-1 gap-2">
         <Image
           alt="Logo"
           as={NextImage}
