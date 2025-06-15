@@ -18,7 +18,7 @@ const ProductCard = ({ product }: Props) => {
           as={NextImage}
           width={400}
           height={300}
-          alt="Imagen del producto"
+          alt={`Imagen del producto: ${product.title}`}
           src={product.image}
           className="rounded-b-none"
         />

@@ -8,8 +8,17 @@ import { fontMono, fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
   description: siteConfig.description,
+  icons: siteConfig.icons,
+  applicationName: siteConfig.appName,
+  authors: { name: "Briell Quintana", url: "" },
+  keywords: siteConfig.keyWords,
+  abstract: siteConfig.abstract,
+  creator: siteConfig.creator,
 };
 
 export const viewport: Viewport = {
@@ -25,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="es">
       <head />
       <body
         className={clsx(
@@ -33,9 +42,12 @@ export default function RootLayout({
           fontSans.variable,
           fontMono.variable,
         )}
+        aria-label="Los Varela App Body"
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          {children}
+          <main role="main" id="main-content">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

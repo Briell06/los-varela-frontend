@@ -7,7 +7,11 @@ import Link from "next/link";
 
 export function HeroSectionOne() {
   return (
-    <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
+    <section
+      className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center"
+      role="region"
+      aria-label="Hero principal de Los Varela"
+    >
       <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
         <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
       </div>
@@ -109,6 +113,6 @@ export function HeroSectionOne() {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

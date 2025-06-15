@@ -1,4 +1,4 @@
-import { footerLinks } from "@/lib/utils";
+import { footerLinkType, siteConfig } from "@/config/site";
 import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
@@ -14,9 +14,16 @@ import { FooterButton } from "./ui/TailwindCssButton";
 
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-col items-center border-t-1 border-white/10 bg-transparent pt-5 md:px-20">
+    <footer
+      className="flex w-full flex-col items-center border-t-1 border-white/10 bg-transparent pt-5 md:px-20"
+      role="contentinfo"
+      aria-label="Pie de página de Los Varela"
+    >
       <div className="flex w-full items-center justify-center gap-10 max-md:flex-col">
-        <div className="flex flex-1 flex-col items-center justify-center gap-4 md:gap-8 lg:gap-10">
+        <div
+          className="flex flex-1 flex-col items-center justify-center gap-4 md:gap-8 lg:gap-10"
+          aria-label="Logo y título"
+        >
           <FooterVideo />
           <p className="text-pretty text-center text-4xl font-bold md:text-5xl lg:text-6xl">
             Los Varela
@@ -26,9 +33,16 @@ const Footer = () => {
         <div className="w-full px-10 md:hidden">
           <Divider />
         </div>
-        <div className="flex w-1/2 flex-1 flex-col items-center justify-center gap-5">
-          {footerLinks.map((link) => (
-            <FooterButton key={link.href} href={link.href}>
+        <div
+          className="flex w-1/2 flex-1 flex-col items-center justify-center gap-5"
+          aria-label="Enlaces del pie de página"
+        >
+          {siteConfig.footerLinks.map((link: footerLinkType) => (
+            <FooterButton
+              key={link.href}
+              href={link.href}
+              aria-label={link.label}
+            >
               {link.label}
             </FooterButton>
           ))}
@@ -36,24 +50,30 @@ const Footer = () => {
       </div>
 
       {/* Social & Contact Section */}
-      <div className="mx-auto mt-8 flex w-full max-w-5xl flex-col items-center gap-8 px-4 md:flex-row md:items-start md:justify-between md:gap-12 lg:gap-24">
+      <div
+        className="mx-auto mt-8 flex w-full max-w-5xl flex-col items-center gap-8 px-4 md:flex-row md:items-start md:justify-between md:gap-12 lg:gap-24"
+        aria-label="Sección de redes sociales y contacto"
+      >
         {/* Social Icons */}
-        <div className="flex flex-row items-center justify-center gap-4 md:min-w-[220px] md:justify-start">
+        <div
+          className="flex flex-row items-center justify-center gap-4 md:min-w-[220px] md:justify-start"
+          aria-label="Redes sociales"
+        >
           <Link
             as={NextLink}
             isExternal
-            href="https://instagram.com/"
+            href={siteConfig.socialLinks.instagram}
             target="_blank"
-            aria-label="Instagram"
+            aria-label="Instagram de Los Varela"
             className="rounded-full bg-gradient-to-tr from-pink-500 to-yellow-400 p-2 text-white transition-transform hover:scale-110"
           >
             <FaInstagram size={22} />
           </Link>
           <Link
             as={NextLink}
-            aria-label="Facebook"
+            aria-label="Facebook de Los Varela"
             isExternal
-            href="https://facebook.com/"
+            href={siteConfig.socialLinks.facebook}
             target="_blank"
             className="rounded-full bg-blue-600 p-2 text-white transition-transform hover:scale-110"
           >
@@ -61,7 +81,7 @@ const Footer = () => {
           </Link>
           <Link
             as={NextLink}
-            href="https://wa.me/"
+            href={siteConfig.socialLinks.whatsApp}
             target="_blank"
             isExternal
             aria-label="WhatsApp"

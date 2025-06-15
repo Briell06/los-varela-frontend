@@ -1,79 +1,41 @@
 export type SiteConfig = typeof siteConfig;
 
+export interface footerLinkType {
+  label: string;
+  href: string;
+}
+
 export const siteConfig = {
   name: "Los Varela",
   description: "Una aplicación para enviar combos a sus familiares en Cuba.",
-  mainNav: [
+  icons: {
+    icon: "favicon.ico",
+    apple: "apple-icon.png",
+  },
+  appName: "Los Varela",
+  keyWords:
+    "Los Varela, los varela, enviar, Cuba, cuba, envíos a Cuba, tienda, productos",
+  abstract: "Enviar productos a Cuba",
+  creator: "Briell Quintana",
+
+  footerLinks: [
     {
-      title: "Home",
+      label: "Inicio",
       href: "/",
     },
     {
-      title: "About",
-      href: "/about",
+      label: "Productos",
+      href: "/productos",
+    },
+    {
+      label: "Instrucciones",
+      href: "/instrucciones",
     },
   ],
-  navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "Profile",
-      href: "/profile",
-    },
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
-  ],
-  links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+
+  socialLinks: {
+    facebook: "https://facebook.com/",
+    instagram: "https://instagram.com/",
+    whatsApp: "https://wa.me/",
   },
 };

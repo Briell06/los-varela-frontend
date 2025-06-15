@@ -33,6 +33,7 @@ const FooterInput = () => {
         color="primary"
         variant={"bordered"}
         isIconOnly
+        aria-label="Disminuir cantidad"
       >
         <BiMinus className="text-default-foreground" />
       </Button>
@@ -46,6 +47,7 @@ const FooterInput = () => {
         classNames={{
           input: "text-center",
         }}
+        aria-label="Cantidad"
       />
       <Button
         onPress={handleIncrement}
@@ -53,6 +55,7 @@ const FooterInput = () => {
         variant={"bordered"}
         color="primary"
         isIconOnly
+        aria-label="Aumentar cantidad"
       >
         <BiPlus className="text-default-foreground" />
       </Button>

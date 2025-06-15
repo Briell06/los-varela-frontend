@@ -19,6 +19,7 @@ const HeaderLink = ({ link, href, children, className }: Props) => {
       variant="light"
       size="lg"
       startContent={link ? <FaHouse /> : <FaShop />}
+      aria-label={typeof children === "string" ? children : undefined}
     >
       {children}
     </Button>
