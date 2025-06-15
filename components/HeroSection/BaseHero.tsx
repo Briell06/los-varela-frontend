@@ -77,7 +77,7 @@ export function HeroSectionOne() {
           </Button>
           <Button
             as={Link}
-            href="/acerca"
+            href="/sobre-nosotros"
             variant="bordered"
             color="primary"
             className="w-60 transform rounded-lg border px-6 py-2 font-medium transition-all duration-300 hover:-translate-y-0.5"
