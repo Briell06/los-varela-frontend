@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
 import { ReactNode } from "react";
 
@@ -12,7 +13,7 @@ const HomeLayout = ({ children }: Props) => {
         {children}
       </main>
       <footer className="flex w-full items-center justify-center py-3">
-        Footer
+        <Footer />
       </footer>
     </div>
   );
