@@ -1,10 +1,10 @@
 const TermsAndConditions = () => {
   return (
-    <main className="mx-auto max-w-2xl px-4 py-12 text-white">
+    <main className="mx-auto max-w-2xl px-4 py-12 text-default-foreground">
       <h1 className="mb-6 text-center text-4xl font-extrabold text-primary-400 drop-shadow-lg">
         Términos y Condiciones
       </h1>
-      <div className="prose prose-invert prose-lg mx-auto text-white/90">
+      <div className="prose prose-lg prose-invert mx-auto text-default-foreground opacity-90">
         <p>
           Bienvenido a Los Varela. Al utilizar nuestro sitio web, aceptas los
           siguientes términos y condiciones. Por favor, léelos cuidadosamente

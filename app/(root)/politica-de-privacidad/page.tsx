@@ -4,7 +4,7 @@ const PrivacyPolicy = () => {
       <h1 className="mb-6 text-center text-4xl font-extrabold text-primary-400 drop-shadow-lg">
         Política de Privacidad
       </h1>
-      <div className="prose prose-invert prose-lg mx-auto text-white/90">
+      <div className="prose prose-lg prose-invert mx-auto text-default-foreground opacity-90">
         <p>
           En Los Varela, valoramos tu privacidad. Recopilamos y utilizamos
           únicamente la información necesaria para procesar tus pedidos y
