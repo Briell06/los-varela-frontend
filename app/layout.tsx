@@ -45,9 +45,7 @@ export default function RootLayout({
         aria-label="Los Varela App Body"
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <main role="main" id="main-content">
-            {children}
-          </main>
+          <div>{children}</div>
         </Providers>
       </body>
     </html>

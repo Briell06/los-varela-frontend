@@ -15,6 +15,8 @@ const ProductCard = ({ product }: Props) => {
     <Card isHoverable>
       <Link href={`/productos/${product.id}`}>
         <Image
+          fetchPriority="high"
+          loading="lazy"
           alt={`Imagen del producto: ${product.title}`}
           src={product.image}
           className="rounded-b-none"

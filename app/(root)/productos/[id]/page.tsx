@@ -12,7 +12,6 @@ import {
 import { ProductByIdQuery, productsQuery } from "@/config/queries";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
-import { Metadata } from "next";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -34,10 +33,12 @@ const productDetailPage = async ({ params }: Props) => {
         <Card className="mx-auto w-fit md:grid md:grid-cols-2 md:place-items-center">
           <CardHeader className="flex flex-col items-center justify-center">
             <Image
+              fetchPriority="high"
+              loading="lazy"
+              isZoomed
               alt="Imagen del producto"
               className="mx-auto max-h-[80vh] object-contain"
               src={product.image}
-              loading="lazy"
             />
           </CardHeader>
           <div className="space-y-5">
@@ -88,12 +89,8 @@ const productDetailPage = async ({ params }: Props) => {
   );
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
-  const product = await ProductByIdQuery(params.id);
+export async function generateMetadata({ params }: Props) {
+  const product = await ProductByIdQuery((await params).id);
   return {
     title: product ? `Producto: ${product.title}` : "Producto",
     description: product ? product.description : "Producto individual",
