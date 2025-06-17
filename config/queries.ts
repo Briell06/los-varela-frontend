@@ -8,6 +8,7 @@ export const productsQuery = async (query: string | undefined) => {
     `${endpoint}/products${query ? `?query=${query}` : ""}`,
     revalidate,
   ).then((res) => res.json());
+
   return products;
 };
 
@@ -15,6 +16,7 @@ export const ProductByIdQuery = async (id: string): Promise<Product> => {
   const product = await fetch(`${endpoint}/products/${id}`, revalidate).then(
     (res) => res.json(),
   );
+
   return product;
 };
 
@@ -23,5 +25,6 @@ export const categoriesQuery = async () => {
     `${endpoint}/categories`,
     revalidate,
   ).then((res) => res.json());
+
   return categories;
 };

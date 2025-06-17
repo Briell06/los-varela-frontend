@@ -37,15 +37,15 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="es">
       <head />
       <body
+        aria-label="Los Varela App Body"
         className={clsx(
           "min-h-screen bg-background font-sans text-foreground antialiased",
           fontSans.variable,
           fontMono.variable,
         )}
-        aria-label="Los Varela App Body"
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div>{children}</div>
+          <>{children}</>
         </Providers>
       </body>
     </html>

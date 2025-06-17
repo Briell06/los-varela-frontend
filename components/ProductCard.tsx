@@ -1,25 +1,26 @@
-import { Product } from "@/types";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
 import Link from "next/link";
+
 import FooterInput from "./FooterInput";
 import ShoppingCartButton from "./ShoppingCartButton";
+
+import { Product } from "@/types";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
-  console.log(product.image);
   return (
     <Card isHoverable>
       <Link href={`/productos/${product.id}`}>
         <Image
+          alt={`Imagen del producto: ${product.title}`}
+          className="rounded-b-none"
           fetchPriority="high"
           loading="lazy"
-          alt={`Imagen del producto: ${product.title}`}
           src={product.image}
-          className="rounded-b-none"
         />
       </Link>
       <CardBody>

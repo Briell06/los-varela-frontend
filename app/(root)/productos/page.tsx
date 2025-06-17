@@ -1,10 +1,11 @@
+import { Button } from "@heroui/button";
+import { Metadata } from "next";
+import { MdOutlineCategory } from "react-icons/md";
+
 import AceternityCategoryCarousel from "@/components/AceternityCategoryCarousel";
 import HeaderLink from "@/components/HeaderLink";
 import ProductCard from "@/components/ProductCard";
 import { productsQuery } from "@/config/queries";
-import { Button } from "@heroui/button";
-import { Metadata } from "next";
-import { MdOutlineCategory } from "react-icons/md";
 
 interface Props {
   searchParams: Promise<{ query?: string }>;
@@ -19,10 +20,10 @@ const ProductsPage = async ({ searchParams }: Props) => {
       {query ? null : (
         <>
           <Button
-            variant="light"
-            size="lg"
             className="mx-auto flex items-center justify-center gap-2 text-center text-2xl font-bold tracking-tighter"
+            size="lg"
             startContent={<MdOutlineCategory />}
+            variant="light"
           >
             Categorías
           </Button>
@@ -32,7 +33,7 @@ const ProductsPage = async ({ searchParams }: Props) => {
         </>
       )}
       <div className="flex items-center justify-center">
-        <HeaderLink link={query ? true : false} href="/productos">
+        <HeaderLink href="/productos" link={query ? true : false}>
           {query ? "Ir a inicio" : "Todos los productos"}
         </HeaderLink>
       </div>

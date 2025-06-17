@@ -13,13 +13,13 @@ import { ThemeSwitch } from "./theme-switch";
 const Navbar = () => {
   return (
     <HeroNavbar
-      shouldHideOnScroll
       isBordered
-      className="py-2"
-      as={"nav"}
+      shouldHideOnScroll
       aria-label="Barra de navegación principal"
+      as={"nav"}
+      className="py-2"
     >
-      <NavbarBrand as={NextLink} href={"/"} className="flex-1 gap-2">
+      <NavbarBrand as={NextLink} className="flex-1 gap-2" href={"/"}>
         <Image
           alt="Logo de Los Varela"
           as={NextImage}

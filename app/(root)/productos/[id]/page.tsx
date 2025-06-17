@@ -1,3 +1,6 @@
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Image } from "@heroui/image";
+
 import FooterInput from "@/components/FooterInput";
 import HeaderLink from "@/components/HeaderLink";
 import ProductCard from "@/components/ProductCard";
@@ -10,8 +13,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ProductByIdQuery, productsQuery } from "@/config/queries";
-import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
-import { Image } from "@heroui/image";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -26,18 +27,18 @@ const productDetailPage = async ({ params }: Props) => {
     <>
       <div>
         <div className="grid place-content-center">
-          <HeaderLink link={true} href="/productos">
+          <HeaderLink href="/productos" link={true}>
             Ir a inicio
           </HeaderLink>
         </div>
         <Card className="mx-auto w-fit md:grid md:grid-cols-2 md:place-items-center">
           <CardHeader className="flex flex-col items-center justify-center">
             <Image
-              fetchPriority="high"
-              loading="lazy"
               isZoomed
               alt="Imagen del producto"
               className="mx-auto max-h-[80vh] object-contain"
+              fetchPriority="high"
+              loading="lazy"
               src={product.image}
             />
           </CardHeader>
@@ -47,7 +48,7 @@ const productDetailPage = async ({ params }: Props) => {
                 {product.title}
               </h3>
               <p className="text-center text-3xl font-semibold text-primary lg:text-5xl">
-                {product.price.toFixed(2)} USD
+                {product.price?.toFixed(2)} USD
               </p>
               <p className="text-center text-xl font-semibold text-content4-foreground lg:text-2xl">
                 {product.description}
@@ -71,8 +72,8 @@ const productDetailPage = async ({ params }: Props) => {
                 .filter((product) => product.id !== id)
                 .map((product) => (
                   <CarouselItem
-                    className="basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                     key={product.id}
+                    className="basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                   >
                     <ProductCard product={product} />
                   </CarouselItem>
@@ -91,6 +92,7 @@ const productDetailPage = async ({ params }: Props) => {
 
 export async function generateMetadata({ params }: Props) {
   const product = await ProductByIdQuery((await params).id);
+
   return {
     title: product ? `Producto: ${product.title}` : "Producto",
     description: product ? product.description : "Producto individual",

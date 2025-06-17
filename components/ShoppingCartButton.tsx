@@ -4,10 +4,10 @@ import { MdShoppingCart } from "react-icons/md";
 const ShoppingCartButton = ({ className }: { className?: string }) => {
   return (
     <Button
-      startContent={<MdShoppingCart size={22} />}
-      color="primary"
-      variant="solid"
       className={`${className}`}
+      color="primary"
+      startContent={<MdShoppingCart size={22} />}
+      variant="solid"
     >
       Añadir al carrito
     </Button>

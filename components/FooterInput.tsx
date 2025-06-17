@@ -6,8 +6,6 @@ import React, { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
 const FooterInput = () => {
-  const [quantity, setQuantity] = useState<number>(1);
-
   const [amount, setAmount] = useState<number>(1);
 
   const handleIncrement = () => {
@@ -28,38 +26,39 @@ const FooterInput = () => {
   return (
     <div className="flex items-center justify-start gap-1">
       <Button
-        onPress={handleDecrement}
+        isIconOnly
+        aria-label="Disminuir cantidad"
         className="rounded-full"
         color="primary"
         variant={"bordered"}
-        isIconOnly
-        aria-label="Disminuir cantidad"
+        onPress={handleDecrement}
       >
         <BiMinus className="text-default-foreground" />
       </Button>
       <Input
-        type="number"
-        variant="faded"
-        color="primary"
-        value={amount.toFixed().toString()}
-        onChange={(e) => handleChange(e)}
+        aria-label="Cantidad"
         className="mx-auto max-w-16"
         classNames={{
           input: "text-center",
         }}
-        aria-label="Cantidad"
+        color="primary"
+        type="number"
+        value={amount?.toFixed().toString()}
+        variant="faded"
+        onChange={(e) => handleChange(e)}
       />
       <Button
-        onPress={handleIncrement}
-        className="rounded-full"
-        variant={"bordered"}
-        color="primary"
         isIconOnly
         aria-label="Aumentar cantidad"
+        className="rounded-full"
+        color="primary"
+        variant={"bordered"}
+        onPress={handleIncrement}
       >
         <BiPlus className="text-default-foreground" />
       </Button>
     </div>
   );
 };
+
 export default FooterInput;
