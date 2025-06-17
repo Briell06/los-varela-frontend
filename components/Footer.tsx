@@ -56,7 +56,7 @@ const Footer = () => {
       >
         {/* Social Icons */}
         <div
-          className="flex flex-row items-center justify-center gap-4 md:min-w-[220px] md:justify-start"
+          className="flex flex-row items-center justify-center gap-4 md:min-w-[220px] md:justify-start md:px-20"
           aria-label="Redes sociales"
         >
           <Link
@@ -91,18 +91,26 @@ const Footer = () => {
           </Link>
         </div>
         {/* Contact Info */}
-        <div className="flex flex-col items-center gap-2 text-center text-lg md:items-end md:gap-3 md:text-right lg:gap-4">
-          <div className="flex items-center gap-2 md:gap-3 lg:gap-4">
+        <div className="flex flex-col items-center justify-center gap-2 text-center text-lg md:items-end md:gap-3 md:px-20 md:text-right lg:gap-4">
+          <div className="mx-auto flex items-center justify-center gap-2 md:gap-3 lg:gap-4">
             <FaEnvelope className="text-primary-400" />
-            <a href="mailto:info@losvarela.com" className="hover:underline">
+            <Link
+              isExternal
+              href="mailto:info@losvarela.com"
+              className="mx-auto text-center text-default-foreground hover:underline"
+            >
               info@losvarela.com
-            </a>
+            </Link>
           </div>
-          <div className="flex items-center gap-2 md:gap-3 lg:gap-4">
+          <div className="mx-auto flex items-center justify-center gap-2 md:gap-3 lg:gap-4">
             <FaPhoneAlt className="text-primary-400" />
-            <a href="tel:+1234567890" className="hover:underline">
+            <Link
+              isExternal
+              href="tel:+1234567890"
+              className="mx-auto text-center text-default-foreground hover:underline"
+            >
               +1 234 567 890
-            </a>
+            </Link>
           </div>
         </div>
       </div>

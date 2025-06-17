@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 const About = () => {
   return (
     <main className="mx-auto max-w-2xl px-4 py-12 text-default-foreground">
@@ -51,3 +53,9 @@ const About = () => {
 };
 
 export default About;
+
+export const metadata: Metadata = {
+  title: "Instrucciones",
+  description: "Instrucciones para realizar una compra",
+  keywords: ["instrucciones", "compra", "los varela"],
+};

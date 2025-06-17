@@ -12,12 +12,13 @@ import {
 import { ProductByIdQuery, productsQuery } from "@/config/queries";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
+import { Metadata } from "next";
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
-const page = async ({ params }: Props) => {
+const productDetailPage = async ({ params }: Props) => {
   const id = (await params).id;
   const product = await ProductByIdQuery(id);
   const products = await productsQuery(product.category);
@@ -30,28 +31,32 @@ const page = async ({ params }: Props) => {
             Ir a inicio
           </HeaderLink>
         </div>
-        <Card className="mx-auto w-fit rounded-t-none">
+        <Card className="mx-auto w-fit md:grid md:grid-cols-2 md:place-items-center">
           <CardHeader className="flex flex-col items-center justify-center">
             <Image
               alt="Imagen del producto"
-              className="mx-auto object-contain"
+              className="mx-auto max-h-[80vh] object-contain"
               src={product.image}
               loading="lazy"
             />
           </CardHeader>
-          <CardBody className="flex flex-col items-center gap-5 text-center">
-            <h3 className="text-center text-4xl font-bold">{product.title}</h3>
-            <p className="text-center text-3xl font-semibold text-primary">
-              {product.price.toFixed(2)} USD
-            </p>
-            <p className="text-center text-xl font-semibold text-content4-foreground">
-              {product.description}
-            </p>
-          </CardBody>
-          <CardFooter className="flex flex-col items-center justify-center">
-            <FooterInput />
-            <ShoppingCartButton className="mt-5 w-full" />
-          </CardFooter>
+          <div className="space-y-5">
+            <CardBody className="flex flex-col items-center gap-5 text-center">
+              <h3 className="text-center text-4xl font-bold lg:text-5xl">
+                {product.title}
+              </h3>
+              <p className="text-center text-3xl font-semibold text-primary lg:text-5xl">
+                {product.price.toFixed(2)} USD
+              </p>
+              <p className="text-center text-xl font-semibold text-content4-foreground lg:text-2xl">
+                {product.description}
+              </p>
+            </CardBody>
+            <CardFooter className="flex flex-col items-center justify-center gap-3 md:gap-5">
+              <FooterInput />
+              <ShoppingCartButton className="w-full md:w-10/12" />
+            </CardFooter>
+          </div>
         </Card>
       </div>
       <div>
@@ -63,7 +68,6 @@ const page = async ({ params }: Props) => {
             <CarouselContent>
               {products
                 .filter((product) => product.id !== id)
-                .slice(0, 4)
                 .map((product) => (
                   <CarouselItem
                     className="basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
@@ -84,4 +88,17 @@ const page = async ({ params }: Props) => {
   );
 };
 
-export default page;
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const product = await ProductByIdQuery(params.id);
+  return {
+    title: product ? `Producto: ${product.title}` : "Producto",
+    description: product ? product.description : "Producto individual",
+    keywords: ["producto", "producto individual", "los varela"],
+  };
+}
+
+export default productDetailPage;

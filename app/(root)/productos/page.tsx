@@ -3,6 +3,7 @@ import HeaderLink from "@/components/HeaderLink";
 import ProductCard from "@/components/ProductCard";
 import { productsQuery } from "@/config/queries";
 import { Button } from "@heroui/button";
+import { Metadata } from "next";
 import { MdOutlineCategory } from "react-icons/md";
 
 interface Props {
@@ -57,3 +58,9 @@ const ProductsPage = async ({ searchParams }: Props) => {
 };
 
 export default ProductsPage;
+
+export const metadata: Metadata = {
+  title: "Productos",
+  description: "Todos los productos disponibles",
+  keywords: ["productos", "todos los productos", "los varela"],
+};

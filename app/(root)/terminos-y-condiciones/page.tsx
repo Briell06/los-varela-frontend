@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 const TermsAndConditions = () => {
   return (
     <main className="mx-auto max-w-2xl px-4 py-12 text-default-foreground">
@@ -38,3 +40,9 @@ const TermsAndConditions = () => {
 };
 
 export default TermsAndConditions;
+
+export const metadata: Metadata = {
+  title: "Términos y Condiciones",
+  description: "Términos y Condiciones",
+  keywords: ["términos y condiciones", "los varela"],
+};
