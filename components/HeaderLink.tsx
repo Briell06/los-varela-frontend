@@ -13,13 +13,13 @@ interface Props {
 const HeaderLink = ({ link, href, children, className }: Props) => {
   return (
     <Button
-      className={clsx("mb-10 text-2xl font-bold", className)}
+      aria-label={typeof children === "string" ? children : undefined}
       as={link ? NextLink : "div"}
+      className={clsx("mb-10 text-2xl font-bold", className)}
       href={link ? href : undefined}
-      variant="light"
       size="lg"
       startContent={link ? <FaHouse /> : <FaShop />}
-      aria-label={typeof children === "string" ? children : undefined}
+      variant="light"
     >
       {children}
     </Button>

@@ -25,3 +25,18 @@ export interface Category {
   created_at: string;
   updated_at: string;
 }
+
+export interface CartProduct {
+  product: Product;
+  amount: number;
+}
+
+export interface CardType {
+  id: string;
+  description: string;
+  title: string;
+  src: string;
+  ctaText: string;
+  ctaLink: string;
+  content: () => JSX.Element;
+}

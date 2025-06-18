@@ -5,7 +5,6 @@ import useEmblaCarousel, {
 } from "embla-carousel-react";
 import * as React from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
 import { Button } from "@heroui/button";
 import clsx from "clsx";
 
@@ -119,11 +118,11 @@ function Carousel({
       }}
     >
       <div
-        onKeyDownCapture={handleKeyDown}
-        className={clsx("relative", className)}
-        role="region"
         aria-roledescription="carousel"
+        className={clsx("relative", className)}
         data-slot="carousel"
+        role="region"
+        onKeyDownCapture={handleKeyDown}
         {...props}
       >
         {children}
@@ -158,14 +157,14 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 
   return (
     <div
-      role="group"
       aria-roledescription="slide"
-      data-slot="carousel-item"
       className={clsx(
         "min-w-0 shrink-0 grow-0 basis-full",
         orientation === "horizontal" ? "pl-4" : "pt-4",
         className,
       )}
+      data-slot="carousel-item"
+      role="group"
       {...props}
     />
   );
@@ -181,11 +180,7 @@ function CarouselPrevious({
 
   return (
     <Button
-      color="primary"
-      data-slot="carousel-previous"
       isIconOnly
-      variant={variant}
-      size={size}
       className={clsx(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
@@ -193,7 +188,11 @@ function CarouselPrevious({
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className,
       )}
+      color="primary"
+      data-slot="carousel-previous"
       disabled={!canScrollPrev}
+      size={size}
+      variant={variant}
       onPress={scrollPrev}
       {...props}
     >
@@ -213,11 +212,7 @@ function CarouselNext({
 
   return (
     <Button
-      data-slot="carousel-next"
       isIconOnly
-      color="primary"
-      variant={variant}
-      size={size}
       className={clsx(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
@@ -225,7 +220,11 @@ function CarouselNext({
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className,
       )}
+      color="primary"
+      data-slot="carousel-next"
       disabled={!canScrollNext}
+      size={size}
+      variant={variant}
       onPress={scrollNext}
       {...props}
     >

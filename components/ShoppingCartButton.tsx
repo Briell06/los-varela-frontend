@@ -1,13 +1,28 @@
+"use client";
+
 import { Button } from "@heroui/button";
 import { MdShoppingCart } from "react-icons/md";
 
-const ShoppingCartButton = ({ className }: { className?: string }) => {
+import CartProductsContext from "@/contexts/CartProductContext";
+import { Product } from "@/types";
+
+interface Props {
+  product: Product;
+  amount: number;
+}
+
+const ShoppingCartButton = ({ product, amount }: Props) => {
+  const products = CartProductsContext((s) => s.products);
+  const addProduct = CartProductsContext((s) => s.addProduct);
+
   return (
     <Button
-      startContent={<MdShoppingCart size={22} />}
       color="primary"
+      startContent={<MdShoppingCart />}
       variant="solid"
-      className={`${className}`}
+      onPress={() => {
+        addProduct({ product, amount }, products);
+      }}
     >
       Añadir al carrito
     </Button>

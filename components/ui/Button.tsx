@@ -48,8 +48,8 @@ function Button({
 
   return (
     <Comp
-      data-slot="button"
       className={clsx(buttonVariants({ variant, size, className }))}
+      data-slot="button"
       {...props}
     />
   );

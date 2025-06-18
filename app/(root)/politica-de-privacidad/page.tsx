@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 const PrivacyPolicy = () => {
   return (
     <main className="mx-auto max-w-2xl px-4 py-12 text-white">
@@ -31,3 +33,9 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+
+export const metadata: Metadata = {
+  title: "Política de privacidad",
+  description: "Política de privacidad",
+  keywords: ["política de privacidad", "los varela"],
+};

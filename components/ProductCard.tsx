@@ -1,23 +1,25 @@
-import { Product } from "@/types";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
 import Link from "next/link";
+
 import FooterInput from "./FooterInput";
-import ShoppingCartButton from "./ShoppingCartButton";
+
+import { Product } from "@/types";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
-  console.log(product.image);
   return (
-    <Card isHoverable>
+    <Card isFooterBlurred isHoverable>
       <Link href={`/productos/${product.id}`}>
         <Image
           alt={`Imagen del producto: ${product.title}`}
+          className="rounded-b-none object-contain"
+          fetchPriority="high"
+          loading="lazy"
           src={product.image}
-          className="rounded-b-none"
         />
       </Link>
       <CardBody>
@@ -27,10 +29,7 @@ const ProductCard = ({ product }: Props) => {
         </p>
       </CardBody>
       <CardFooter>
-        <div className="flex w-full items-center justify-between gap-2">
-          <FooterInput />
-          <ShoppingCartButton />
-        </div>
+        <FooterInput product={product} />
       </CardFooter>
     </Card>
   );

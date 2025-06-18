@@ -1,6 +1,7 @@
+import { Carousel } from "./ui/aceternityCarousel";
+
 import { categoriesQuery } from "@/config/queries";
 import { Category } from "@/types";
-import { Carousel } from "./ui/aceternityCarousel";
 
 const AceternityCategoryCarousel = async () => {
   const categories = await categoriesQuery();

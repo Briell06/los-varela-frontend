@@ -6,10 +6,10 @@ const FooterVideo = () => {
   return (
     <LazyLoad>
       <video
-        muted
         autoPlay
-        src="/logo-video.mp4"
+        muted
         className="size-32 rounded-full"
+        src="/logo-video.mp4"
       >
         Su navegador no soporta el video
       </video>
