@@ -17,8 +17,6 @@ const ProductCard = ({ product }: Props) => {
         <Image
           alt={`Imagen del producto: ${product.title}`}
           className="rounded-b-none object-contain"
-          fetchPriority="high"
-          loading="lazy"
           src={product.image}
         />
       </Link>
