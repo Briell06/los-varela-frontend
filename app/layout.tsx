@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  icons: siteConfig.icons,
   applicationName: siteConfig.appName,
   authors: { name: "Briell Quintana", url: "" },
   keywords: siteConfig.keyWords,
