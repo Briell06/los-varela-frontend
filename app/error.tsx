@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
 
 export default function Error() {
   return (
@@ -12,7 +11,7 @@ export default function Error() {
       <p className="max-w-md text-lg text-white/70">
         Ocurrió un error inesperado. Por favor, intenta de nuevo.
       </p>
-      <Button as={Link} href="/productos">
+      <Button as={"a"} href="/productos">
         Intentar de nuevo
       </Button>
     </div>

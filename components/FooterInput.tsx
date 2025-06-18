@@ -5,7 +5,15 @@ import { Input } from "@heroui/input";
 import React, { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
-const FooterInput = () => {
+import ShoppingCartButton from "./ShoppingCartButton";
+
+import { Product } from "@/types";
+
+interface Props {
+  product: Product;
+}
+
+const FooterInput = ({ product }: Props) => {
   const [amount, setAmount] = useState<number>(1);
 
   const handleIncrement = () => {
@@ -24,39 +32,42 @@ const FooterInput = () => {
   };
 
   return (
-    <div className="flex items-center justify-start gap-1">
-      <Button
-        isIconOnly
-        aria-label="Disminuir cantidad"
-        className="rounded-full"
-        color="primary"
-        variant={"bordered"}
-        onPress={handleDecrement}
-      >
-        <BiMinus className="text-default-foreground" />
-      </Button>
-      <Input
-        aria-label="Cantidad"
-        className="mx-auto max-w-16"
-        classNames={{
-          input: "text-center",
-        }}
-        color="primary"
-        type="number"
-        value={amount?.toFixed().toString()}
-        variant="faded"
-        onChange={(e) => handleChange(e)}
-      />
-      <Button
-        isIconOnly
-        aria-label="Aumentar cantidad"
-        className="rounded-full"
-        color="primary"
-        variant={"bordered"}
-        onPress={handleIncrement}
-      >
-        <BiPlus className="text-default-foreground" />
-      </Button>
+    <div className="flex w-full items-center justify-between gap-1">
+      <div className="flex items-center justify-start gap-1">
+        <Button
+          isIconOnly
+          aria-label="Disminuir cantidad"
+          className="rounded-full"
+          color="primary"
+          variant={"bordered"}
+          onPress={handleDecrement}
+        >
+          <BiMinus className="text-default-foreground" />
+        </Button>
+        <Input
+          aria-label="Cantidad"
+          className="mx-auto max-w-16"
+          classNames={{
+            input: "text-center",
+          }}
+          color="primary"
+          type="number"
+          value={amount?.toFixed().toString()}
+          variant="faded"
+          onChange={(e) => handleChange(e)}
+        />
+        <Button
+          isIconOnly
+          aria-label="Aumentar cantidad"
+          className="rounded-full"
+          color="primary"
+          variant={"bordered"}
+          onPress={handleIncrement}
+        >
+          <BiPlus className="text-default-foreground" />
+        </Button>
+      </div>
+      <ShoppingCartButton amount={amount} product={product} />
     </div>
   );
 };

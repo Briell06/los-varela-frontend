@@ -4,7 +4,6 @@ import { Image } from "@heroui/image";
 import FooterInput from "@/components/FooterInput";
 import HeaderLink from "@/components/HeaderLink";
 import ProductCard from "@/components/ProductCard";
-import ShoppingCartButton from "@/components/ShoppingCartButton";
 import {
   Carousel,
   CarouselContent,
@@ -54,9 +53,8 @@ const productDetailPage = async ({ params }: Props) => {
                 {product.description}
               </p>
             </CardBody>
-            <CardFooter className="flex flex-col items-center justify-center gap-3 md:gap-5">
-              <FooterInput />
-              <ShoppingCartButton className="w-full md:w-10/12" />
+            <CardFooter className="flex flex-col items-center justify-center">
+              <FooterInput product={product} />
             </CardFooter>
           </div>
         </Card>

@@ -7,6 +7,7 @@ import {
 import NextImage from "next/image";
 import NextLink from "next/link";
 
+import CartIcon from "./CartIcon";
 import SearchInput from "./SearchInput";
 import { ThemeSwitch } from "./theme-switch";
 
@@ -14,7 +15,6 @@ const Navbar = () => {
   return (
     <HeroNavbar
       isBordered
-      shouldHideOnScroll
       aria-label="Barra de navegación principal"
       as={"nav"}
       className="py-2"
@@ -34,8 +34,11 @@ const Navbar = () => {
       <NavbarContent justify="center">
         <SearchInput />
       </NavbarContent>
-      <NavbarContent justify="end">
-        <ThemeSwitch className="mx-auto" />
+      <NavbarContent className="justify-end">
+        <div className="mx-auto flex space-x-2 md:space-x-5 lg:space-x-5">
+          <CartIcon />
+          <ThemeSwitch className="mx-auto" />
+        </div>
       </NavbarContent>
     </HeroNavbar>
   );
