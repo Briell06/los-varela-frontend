@@ -33,7 +33,7 @@ const ProductsPage = async ({ searchParams }: Props) => {
         </>
       )}
       <div className="flex items-center justify-center">
-        <HeaderLink href="/productos" link={query ? true : false}>
+        <HeaderLink href="/productos" link={!!query}>
           {query ? "Ir a inicio" : "Todos los productos"}
         </HeaderLink>
       </div>

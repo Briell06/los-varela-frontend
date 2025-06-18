@@ -11,7 +11,7 @@ export default function Error() {
       <p className="max-w-md text-lg text-white/70">
         Ocurrió un error inesperado. Por favor, intenta de nuevo.
       </p>
-      <Button as={"a"} href="/productos">
+      <Button onPress={() => document.location.reload()}>
         Intentar de nuevo
       </Button>
     </div>

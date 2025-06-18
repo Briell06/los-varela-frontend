@@ -13,6 +13,7 @@ export interface CartProductZustandProps {
 
 const CartProductsContext = create<CartProductZustandProps>((set) => ({
   products: [],
+
   addProduct: (product: CartProduct, products: CartProduct[]) => {
     const productExists = products.find(
       (p) => p.product.id === product.product.id,
@@ -23,7 +24,7 @@ const CartProductsContext = create<CartProductZustandProps>((set) => ({
         products: state.products.map((p) =>
           p.product.id === product.product.id
             ? produce(p, (draft) => {
-                draft.amount += 1;
+                draft.amount += p.amount;
               })
             : p,
         ),
@@ -32,19 +33,22 @@ const CartProductsContext = create<CartProductZustandProps>((set) => ({
       set((state) => ({ products: [...state.products, product] }));
     }
   },
+
   removeProduct: (productId) =>
     set((state) => ({
       products: state.products.filter(
         (product) => product.product.id !== productId,
       ),
     })),
+
   clearCart: () => set(() => ({ products: [] })),
+
   updateProductQuantity: (productId, quantity) =>
     set((state) => ({
       products: state.products.map((product) =>
         product.product.id === productId
           ? produce(product, (draft) => {
-              draft.amount = quantity;
+              draft.amount = draft.amount + quantity;
             })
           : product,
       ),

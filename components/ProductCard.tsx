@@ -12,19 +12,27 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <Card isFooterBlurred isHoverable>
+    <Card>
       <Link href={`/productos/${product.id}`}>
         <Image
           alt={`Imagen del producto: ${product.title}`}
-          className="rounded-b-none object-contain"
+          height={400}
           src={product.image}
+          width={500}
         />
       </Link>
       <CardBody>
         <h2 className="text-2xl font-bold">{product.title}</h2>
-        <p className="mt-3 text-3xl font-semibold text-blue-500">
-          {product.price?.toFixed(2)} USD
-        </p>
+        <div className="flex gap-2">
+          <p className="relative text-2xl font-bold text-primary">
+            {product.price.toFixed(2)} UDS
+          </p>
+          {product.fake_price && (
+            <p className="text-lg font-bold text-primary-300 line-through">
+              {product.fake_price} USD
+            </p>
+          )}
+        </div>
       </CardBody>
       <CardFooter>
         <FooterInput product={product} />

@@ -25,6 +25,7 @@
     "@heroui/snippet": "2.2.21",
     "@heroui/switch": "2.2.18",
     "@heroui/system": "2.4.16",
+    "@heroui/table": "^2.2.20",
     "@heroui/theme": "2.4.16",
     "@radix-ui/react-slot": "^1.2.3",
     "@react-aria/ssr": "3.9.8",
