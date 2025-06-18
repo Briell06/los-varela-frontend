@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
+import { ReactNode } from "react";
 
 import { Providers } from "./providers";
 
@@ -27,14 +28,9 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html suppressHydrationWarning lang="es">
-      <head />
       <body
         aria-label="Los Varela App Body"
         className={clsx(

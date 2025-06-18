@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "@heroui/button";
-import { MdShoppingCart } from "react-icons/md";
+import { MdCheck, MdShoppingCart } from "react-icons/md";
+import { useState } from "react";
 
 import CartProductsContext from "@/contexts/CartProductContext";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const ShoppingCartButton = ({ product, amount, className }: Props) => {
+  const [isAdded, setIsAdded] = useState(false);
   const products = CartProductsContext((s) => s.products);
   const addProduct = CartProductsContext((s) => s.addProduct);
 
@@ -21,13 +23,14 @@ const ShoppingCartButton = ({ product, amount, className }: Props) => {
     <Button
       className={cn(className)}
       color="primary"
-      startContent={<MdShoppingCart />}
+      startContent={isAdded ? <MdCheck /> : <MdShoppingCart />}
       variant="solid"
       onPress={() => {
         addProduct({ product, amount }, products);
+        setIsAdded(true);
       }}
     >
-      Añadir al carrito
+      {isAdded ? "Añadido" : "Añadir al carrito"}
     </Button>
   );
 };

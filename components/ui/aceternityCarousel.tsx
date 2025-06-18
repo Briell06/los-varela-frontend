@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
+import { Button } from "@heroui/button";
 
 interface SlideData {
   title: string;
@@ -85,7 +86,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     >
       <div
         ref={slideRef}
-        className="relative z-10 mx-[4vmin] flex h-[70vmin] w-[70vmin] flex-1 flex-col items-center justify-center text-center text-white opacity-100 transition-all duration-300 ease-in-out md:h-[40vmin] md:w-[40vmin]"
+        className="relative z-10 mx-[4vmin] flex h-[60vmin] w-[60vmin] flex-1 flex-col items-center justify-center text-center text-white opacity-100 transition-all duration-300 ease-in-out md:h-[40vmin] md:w-[40vmin]"
         role="button"
         style={{
           transform:
@@ -136,13 +137,16 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             current === index ? "visible opacity-100" : "invisible opacity-0"
           }`}
         >
-          <h2 className="relative text-2xl font-semibold md:text-2xl lg:text-3xl">
+          <h2 className="relative text-xl font-semibold md:text-2xl lg:text-3xl">
             {title}
           </h2>
           <div className="flex justify-center">
-            <button className="mx-auto mt-6 flex h-12 w-fit items-center justify-center rounded-2xl border border-transparent bg-white px-4 py-2 text-xl font-semibold text-black opacity-70 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 hover:shadow-lg sm:text-sm">
+            <Button
+              className="text-md mx-auto mt-6 flex h-12 w-fit items-center justify-center rounded-2xl border border-transparent bg-white px-4 py-2 font-semibold text-black opacity-70 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 hover:shadow-lg sm:text-sm"
+              size="sm"
+            >
               {button}
-            </button>
+            </Button>
           </div>
         </article>
       </div>
@@ -204,7 +208,7 @@ export function Carousel({ slides }: CarouselProps) {
   return (
     <div
       aria-labelledby={`carousel-heading-${id}`}
-      className="relative mx-auto h-[70vmin] w-[70vmin] md:h-[40vmin] md:w-[40vmin]"
+      className="relative mx-auto h-[60vmin] w-[60vmin] md:h-[40vmin] md:w-[40vmin]"
     >
       <ul
         className="absolute mx-[-4vmin] flex transition-transform duration-1000 ease-in-out"
