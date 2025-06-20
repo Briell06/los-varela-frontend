@@ -12,25 +12,23 @@ import {
   TableRow,
 } from "@heroui/table";
 import { Button } from "@heroui/button";
-import { useRouter } from "next/navigation";
+import { Trash } from "lucide-react";
 
 import CartProductsContext from "@/contexts/CartProductContext";
 
 const CartPaySection = () => {
-  const router = useRouter();
-
   const cartProducts = CartProductsContext((s) => s.products);
   const clearCart = CartProductsContext((s) => s.clearCart);
 
   return (
     <Card
-      className={`mx-auto grid w-full max-w-2xl gap-5 space-y-5 rounded p-5`}
+      className={`sticky top-1/4 mx-auto grid h-fit w-full max-w-2xl gap-5 space-y-5 rounded p-5`}
     >
       <CardHeader className={"flex gap-2 text-xl"}>
         <IconLabel className={"-rotate-[140deg]"} />
         <h3>Resumen de la orden</h3>
       </CardHeader>
-      <CardBody>
+      <CardBody className={"px-0"}>
         <Table hideHeader color="primary" radius={"none"}>
           <TableHeader>
             <TableColumn>Motivo</TableColumn>
@@ -39,7 +37,7 @@ const CartPaySection = () => {
           <TableBody>
             <TableRow key={1}>
               <TableCell>Productos en el carrito</TableCell>
-              <TableCell>
+              <TableCell className="whitespace-nowrap">
                 {cartProducts.reduce(
                   (acc, curr) => acc + curr.amount * curr.product.price,
                   0,
@@ -49,34 +47,33 @@ const CartPaySection = () => {
             </TableRow>
             <TableRow key={2}>
               <TableCell>Precio de envío</TableCell>
-              <TableCell>x</TableCell>
+              <TableCell>5</TableCell>
             </TableRow>
             <TableRow key={3}>
               <TableCell className="text-lg font-bold">Total</TableCell>
-              <TableCell className="text-lg font-bold">
+              <TableCell className="text-lg font-bold text-success">
                 {cartProducts.reduce(
                   (acc, curr) => acc + curr.amount * curr.product.price,
                   0,
-                ) + 5}
+                ) + 5}{" "}
+                USD
               </TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </CardBody>
       <CardFooter className="flex-col justify-center gap-2">
-        {cartProducts.length > 0 && (
-          <Button
-            className="w-10/12"
-            color={"danger"}
-            variant="ghost"
-            onPress={() => {
-              router.push("/productos");
-              clearCart();
-            }}
-          >
-            Eliminar productos
-          </Button>
-        )}
+        <Button
+          className="w-10/12"
+          color={"danger"}
+          startContent={<Trash />}
+          variant="ghost"
+          onPress={() => {
+            clearCart();
+          }}
+        >
+          Eliminar productos
+        </Button>
         <Button className="w-10/12 font-semibold" color="primary">
           Realizar Compra
         </Button>

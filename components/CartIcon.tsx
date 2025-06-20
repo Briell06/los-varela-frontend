@@ -18,7 +18,12 @@ const CartIcon = () => {
       showOutline={false}
       variant="solid"
     >
-      <Button isIconOnly as={Link} href={"/carrito"} variant="light">
+      <Button
+        isIconOnly
+        as={products.length > 0 ? Link : undefined}
+        href={products.length > 0 ? "/carrito" : undefined}
+        variant="light"
+      >
         <ShoppingCart />
       </Button>
     </Badge>
