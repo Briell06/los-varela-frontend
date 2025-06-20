@@ -4,7 +4,7 @@ import { MdOutlineCategory } from "react-icons/md";
 
 import AceternityCategoryCarousel from "@/components/AceternityCategoryCarousel";
 import HeaderLink from "@/components/HeaderLink";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/app/(root)/productos/ProductCard";
 import { productsQuery } from "@/config/queries";
 
 interface Props {

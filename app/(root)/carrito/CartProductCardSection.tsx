@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Card, CardBody, CardFooter } from "@heroui/card";
-import { Image } from "@heroui/image";
+import Image from "next/image";
 
 import CartProductsContext from "@/contexts/CartProductContext";
-import FooterInput from "@/components/FooterInput";
+import CardFooterInput from "@/app/(root)/productos/CardFooterInput";
 
 const CartProductCardSection = () => {
   const cartProducts = CartProductsContext((s) => s.products);
@@ -21,16 +21,23 @@ const CartProductCardSection = () => {
       {cartProducts.length > 0 ? (
         cartProducts.map(({ product, amount }) => (
           <Card key={product.id} className="grid">
-            <Image alt={product.title} src={product.image} />
+            <Image
+              alt={product.title}
+              height={400}
+              src={product.image}
+              width={500}
+            />
             <CardBody>
-              <h3 className="text-2xl">{product.title}</h3>
+              <h3 className="text-2xl">
+                {product.title} <span className="text-primary">({amount})</span>
+              </h3>
               <p className="mt-2 text-2xl font-bold text-primary">
                 {product.price * amount}
                 USD
               </p>
             </CardBody>
             <CardFooter>
-              <FooterInput col eliminate product={product} />
+              <CardFooterInput col eliminate product={product} />
             </CardFooter>
           </Card>
         ))

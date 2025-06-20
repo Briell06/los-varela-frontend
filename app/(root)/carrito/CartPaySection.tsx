@@ -64,17 +64,19 @@ const CartPaySection = () => {
         </Table>
       </CardBody>
       <CardFooter className="flex-col justify-center gap-2">
-        <Button
-          className="w-10/12"
-          color={"danger"}
-          variant="ghost"
-          onPress={() => {
-            router.push("/productos");
-            clearCart();
-          }}
-        >
-          Eliminar productos
-        </Button>
+        {cartProducts.length > 0 && (
+          <Button
+            className="w-10/12"
+            color={"danger"}
+            variant="ghost"
+            onPress={() => {
+              router.push("/productos");
+              clearCart();
+            }}
+          >
+            Eliminar productos
+          </Button>
+        )}
         <Button className="w-10/12 font-semibold" color="primary">
           Realizar Compra
         </Button>

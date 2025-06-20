@@ -3,13 +3,12 @@
 import { Badge } from "@heroui/badge";
 import { Button } from "@heroui/button";
 import { ShoppingCart } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import CartProductsContext from "@/contexts/CartProductContext";
 
 const CartIcon = () => {
   const { products } = CartProductsContext();
-  const router = useRouter();
 
   return (
     <Badge
@@ -19,13 +18,7 @@ const CartIcon = () => {
       showOutline={false}
       variant="solid"
     >
-      <Button
-        isIconOnly
-        variant="light"
-        onPress={() => {
-          router.push("/carrito");
-        }}
-      >
+      <Button isIconOnly as={Link} href={"/carrito"} variant="light">
         <ShoppingCart />
       </Button>
     </Badge>

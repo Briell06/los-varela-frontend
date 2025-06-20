@@ -17,7 +17,7 @@ interface Props {
   eliminate?: boolean;
 }
 
-const FooterInput = ({ product, col, eliminate }: Props) => {
+const CardFooterInput = ({ product, col, eliminate }: Props) => {
   const [amount, setAmount] = useState<number>(1);
   const products = CartProductsContext((s) => s.products);
   const removeProduct = CartProductsContext((s) => s.removeProduct);
@@ -122,4 +122,4 @@ const FooterInput = ({ product, col, eliminate }: Props) => {
   );
 };
 
-export default FooterInput;
+export default CardFooterInput;

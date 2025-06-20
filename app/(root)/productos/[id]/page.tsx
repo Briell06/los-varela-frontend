@@ -1,9 +1,9 @@
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
 
-import FooterInput from "@/components/FooterInput";
+import CardFooterInput from "@/app/(root)/productos/CardFooterInput";
 import HeaderLink from "@/components/HeaderLink";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/app/(root)/productos/ProductCard";
 import {
   Carousel,
   CarouselContent,
@@ -54,7 +54,7 @@ const productDetailPage = async ({ params }: Props) => {
               </p>
             </CardBody>
             <CardFooter className="flex flex-col items-center justify-center">
-              <FooterInput product={product} />
+              <CardFooterInput product={product} />
             </CardFooter>
           </div>
         </Card>

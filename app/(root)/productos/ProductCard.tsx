@@ -1,8 +1,8 @@
 import { Card, CardBody, CardFooter } from "@heroui/card";
-import { Image } from "@heroui/image";
 import Link from "next/link";
+import Image from "next/image";
 
-import FooterInput from "./FooterInput";
+import CardFooterInput from "./CardFooterInput";
 
 import { Product } from "@/types";
 
@@ -35,7 +35,7 @@ const ProductCard = ({ product }: Props) => {
         </div>
       </CardBody>
       <CardFooter>
-        <FooterInput product={product} />
+        <CardFooterInput product={product} />
       </CardFooter>
     </Card>
   );
