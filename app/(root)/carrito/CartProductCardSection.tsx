@@ -29,7 +29,8 @@ const CartProductCardSection = () => {
             />
             <CardBody>
               <h3 className="text-2xl">
-                {product.title} <span className="text-primary">({amount})</span>
+                {product.title}{" "}
+                {amount > 1 && <span className="text-primary">({amount})</span>}
               </h3>
               <p className="mt-2 text-2xl font-bold text-primary">
                 {product.price * amount}
