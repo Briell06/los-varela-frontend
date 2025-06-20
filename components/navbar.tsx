@@ -1,10 +1,9 @@
-import { Image } from "@heroui/image";
 import {
   Navbar as HeroNavbar,
   NavbarBrand,
   NavbarContent,
 } from "@heroui/navbar";
-import NextImage from "next/image";
+import Image from "next/image";
 import NextLink from "next/link";
 
 import CartIcon from "./CartIcon";
@@ -22,10 +21,8 @@ const Navbar = () => {
       <NavbarBrand as={NextLink} className="flex-1 gap-2" href={"/"}>
         <Image
           alt="Logo de Los Varela"
-          as={NextImage}
-          className="max-h-[55px] min-h-[55px] min-w-[55px] max-w-[55px]"
+          className="max-h-[55px] min-h-[55px] min-w-[55px] max-w-[55px] rounded-full"
           height={55}
-          radius="full"
           src="/logo.jpg"
           width={55}
         />

@@ -15,8 +15,9 @@ const ProductCard = ({ product }: Props) => {
     <Card>
       <Link href={`/productos/${product.id}`}>
         <Image
-          alt={`Imagen del producto: ${product.title}`}
+          alt={`Imagen del producto`}
           height={400}
+          priority={true}
           src={product.image}
           width={500}
         />
@@ -29,7 +30,7 @@ const ProductCard = ({ product }: Props) => {
           </p>
           {product.fake_price && (
             <p className="text-lg font-bold text-primary-300 line-through">
-              {product.fake_price} USD
+              {product.fake_price.toFixed(2)} USD
             </p>
           )}
         </div>

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "@heroui/button";
+import Link from "next/link";
 
 interface SlideData {
   title: string;
@@ -116,15 +117,17 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           }}
         >
           <Image
-            fill
             alt={title}
             className="duration-600 absolute inset-0 h-full w-full rounded-xl object-cover transition-opacity ease-in-out"
             decoding="sync"
+            height={600}
             loading="eager"
+            priority={true}
             src={src}
             style={{
               opacity: current === index ? 1 : 0.5,
             }}
+            width={600}
             onLoad={imageLoaded}
           />
           {current === index && (
@@ -142,7 +145,9 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           </h2>
           <div className="flex justify-center">
             <Button
+              as={Link}
               className="text-md mx-auto mt-6 flex h-12 w-fit items-center justify-center rounded-2xl border border-transparent bg-white px-4 py-2 font-semibold text-black opacity-70 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 hover:shadow-lg sm:text-sm"
+              href={"/productos?query=" + query}
               size="sm"
             >
               {button}

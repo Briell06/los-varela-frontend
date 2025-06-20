@@ -1,5 +1,6 @@
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
-import { Image } from "@heroui/image";
+import Image from "next/image";
+import { Link } from "@heroui/link";
 
 import CardFooterInput from "@/app/(root)/productos/CardFooterInput";
 import HeaderLink from "@/components/HeaderLink";
@@ -32,14 +33,15 @@ const productDetailPage = async ({ params }: Props) => {
         </div>
         <Card className="mx-auto w-fit md:grid md:grid-cols-2 md:place-items-center">
           <CardHeader className="flex flex-col items-center justify-center">
-            <Image
-              isZoomed
-              alt="Imagen del producto"
-              className="mx-auto max-h-[80vh] object-contain"
-              fetchPriority="high"
-              loading="lazy"
-              src={product.image}
-            />
+            <Link isExternal href={product.image}>
+              <Image
+                alt={`Imagen del producto`}
+                className="mx-auto max-h-[80vh] object-contain"
+                height={500}
+                src={product.image}
+                width={500}
+              />
+            </Link>
           </CardHeader>
           <div className="space-y-5">
             <CardBody className="flex flex-col items-center gap-5 text-center">
