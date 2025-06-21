@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@heroui/button";
-import { Image } from "@heroui/image";
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function HeroSectionOne() {
@@ -107,7 +107,9 @@ export function HeroSectionOne() {
             <Image
               alt="imagen de inicio"
               className="aspect-square object-cover"
+              height={1000}
               src="/hero-image.jpg"
+              width={1000}
             />
           </div>
         </motion.div>

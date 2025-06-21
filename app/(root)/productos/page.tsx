@@ -2,9 +2,9 @@ import { Button } from "@heroui/button";
 import { Metadata } from "next";
 import { MdOutlineCategory } from "react-icons/md";
 
+import ProductCard from "@/app/(root)/productos/ProductCard";
 import AceternityCategoryCarousel from "@/components/AceternityCategoryCarousel";
 import HeaderLink from "@/components/HeaderLink";
-import ProductCard from "@/app/(root)/productos/ProductCard";
 import { productsQuery } from "@/config/queries";
 
 interface Props {

@@ -1,6 +1,7 @@
-import HeaderLink from "@/components/HeaderLink";
-import CartProductCardSection from "@/app/(root)/carrito/CartProductCardSection";
 import CartPaySection from "@/app/(root)/carrito/CartPaySection";
+import CartProductCardSection from "@/app/(root)/carrito/CartProductCardSection";
+import CartValidationForm from "@/app/(root)/carrito/CartValidationForm";
+import HeaderLink from "@/components/HeaderLink";
 
 const CartPage = () => {
   return (
@@ -10,9 +11,12 @@ const CartPage = () => {
           Seguir comprando
         </HeaderLink>
       </div>
-      <section className={`grid gap-5`}>
+      <section className={`grid gap-5 lg:grid-cols-2 lg:place-content-center`}>
         <CartProductCardSection />
-        <CartPaySection />
+        <div className="space-y-5">
+          <CartValidationForm />
+          <CartPaySection />
+        </div>
       </section>
     </>
   );

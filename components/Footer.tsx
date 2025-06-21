@@ -50,7 +50,6 @@ const Footer = () => {
           ))}
         </div>
       </div>
-
       {/* Social & Contact Section */}
       <div
         aria-label="Sección de redes sociales y contacto"
@@ -116,11 +115,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       <div className="my-6 w-full">
         <Divider />
       </div>
-
       {/* Copyright & Tagline */}
       <div className="flex w-full flex-col items-center justify-between gap-2 pb-2 text-center text-sm text-white/60 md:flex-row md:text-left">
         <span className="text-md mx-auto">
@@ -145,6 +142,10 @@ const Footer = () => {
           Política de Privacidad
         </Link>
       </div>
+      <Divider className={"my-2"} />
+      <p className="text-center">
+        © {new Date().getFullYear()} Los Varela. Todos los derechos reservados.
+      </p>
     </footer>
   );
 };

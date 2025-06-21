@@ -2,6 +2,7 @@
 
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
+import { Trash } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
@@ -106,15 +107,16 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
         <Button
           className="w-11/12"
           color="danger"
-          variant="bordered"
+          startContent={<Trash />}
+          variant="ghost"
           onPress={() => removeProduct(product.id)}
         >
-          Eliminar
+          Eliminar del carrito
         </Button>
       ) : (
         <ShoppingCartButton
           amount={amount}
-          className={cn(col && "w-full")}
+          className={cn(col && "w-full flex-1")}
           product={product}
         />
       )}
