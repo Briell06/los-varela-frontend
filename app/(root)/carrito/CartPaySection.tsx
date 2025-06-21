@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
-import { IconLabel } from "@tabler/icons-react";
 import {
   Table,
   TableBody,
@@ -11,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@heroui/table";
-import { Button } from "@heroui/button";
+import { IconLabel } from "@tabler/icons-react";
 import { Trash } from "lucide-react";
 
 import CartProductsContext from "@/contexts/CartProductContext";
@@ -47,7 +46,7 @@ const CartPaySection = () => {
             </TableRow>
             <TableRow key={2}>
               <TableCell>Precio de envío</TableCell>
-              <TableCell>5</TableCell>
+              <TableCell>5 USD</TableCell>
             </TableRow>
             <TableRow key={3}>
               <TableCell className="text-lg font-bold">Total</TableCell>

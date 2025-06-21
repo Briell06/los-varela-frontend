@@ -18,8 +18,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import CartProductsContext from "@/contexts/CartProductContext";
+import SendInformationContext from "@/contexts/SendInformationContext";
 
 const CartForm = () => {
+  const setInfo = SendInformationContext((s) => s.setInfo);
   const cartProducts = CartProductsContext((s) => s.products);
   const [isSubmitted, setIsSubmitted] = useState(false);
   // 1. Define your form.
@@ -43,7 +45,7 @@ const CartForm = () => {
       products: cartProducts,
     };
 
-    console.log(newItem);
+    setInfo(newItem);
   }
 
   return (
