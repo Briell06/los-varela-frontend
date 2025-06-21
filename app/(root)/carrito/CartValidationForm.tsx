@@ -1,14 +1,18 @@
 import { Card, CardBody, CardHeader } from "@heroui/card";
 
+import CartForm from "@/app/(root)/carrito/CartForm";
+
 const CartValidationForm = () => {
   return (
-    <Card>
+    <Card radius="sm">
       <CardHeader>
-        <h4 className="text-center text-2xl text-secondary">
+        <h4 className="mx-auto text-center text-2xl text-warning">
           Información necesaria para completar su orden
         </h4>
       </CardHeader>
-      <CardBody />
+      <CardBody>
+        <CartForm />
+      </CardBody>
     </Card>
   );
 };

@@ -2,8 +2,8 @@
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import Image from "next/image";
 
-import CartProductsContext from "@/contexts/CartProductContext";
 import CardFooterInput from "@/app/(root)/productos/CardFooterInput";
+import CartProductsContext from "@/contexts/CartProductContext";
 
 const CartProductCardSection = () => {
   const cartProducts = CartProductsContext((s) => s.products);
@@ -24,7 +24,7 @@ const CartProductCardSection = () => {
           >
             <Image
               alt={product.title}
-              className="object-containe md:row-span-full"
+              className="object-contain md:row-span-full"
               height={400}
               src={product.image}
               width={500}

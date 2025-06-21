@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@heroui/button";
-import { MdCheck, MdShoppingCart } from "react-icons/md";
 import { useState } from "react";
+import { MdCheck, MdShoppingCart } from "react-icons/md";
 
 import CartProductsContext from "@/contexts/CartProductContext";
 import { cn } from "@/lib/utils";
