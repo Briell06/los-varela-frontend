@@ -1,18 +1,21 @@
 import { create } from "zustand";
 
-import { CartProduct } from "@/types";
+export interface Info {
+  name: string;
+  province: string;
+}
 
 interface SendInformationZustandProps {
-  products: CartProduct[];
-  name: string;
-  setInfo: (info: { products: CartProduct[]; name: string }) => void;
+  info: Info;
+  setInfo: (info: Info) => void;
 }
 
 const sendInfoContext = create<SendInformationZustandProps>((set) => ({
-  products: [],
-  name: "",
-  setInfo: (info: { products: CartProduct[]; name: string }) =>
-    set({ products: info.products, name: info.name }),
+  info: {
+    name: "",
+    province: "",
+  },
+  setInfo: (info: Info) => set({ info }),
 }));
 
 export default sendInfoContext;
