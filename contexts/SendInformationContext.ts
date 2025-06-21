@@ -8,6 +8,7 @@ export interface Info {
 interface SendInformationZustandProps {
   info: Info;
   setInfo: (info: Info) => void;
+  clearInfo: () => void;
 }
 
 const sendInfoContext = create<SendInformationZustandProps>((set) => ({
@@ -16,6 +17,7 @@ const sendInfoContext = create<SendInformationZustandProps>((set) => ({
     province: "",
   },
   setInfo: (info: Info) => set({ info }),
+  clearInfo: () => set({ info: { name: "", province: "" } }),
 }));
 
 export default sendInfoContext;

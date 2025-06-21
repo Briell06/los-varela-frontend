@@ -18,10 +18,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import CartProductsContext from "@/contexts/CartProductContext";
-import SendInformationContext from "@/contexts/SendInformationContext";
+import SendInformationContext, {
+  Info,
+} from "@/contexts/SendInformationContext";
 
 const CartForm = () => {
   const setInfo = SendInformationContext((s) => s.setInfo);
+  const clearInfo = SendInformationContext((s) => s.clearInfo);
   const cartProducts = CartProductsContext((s) => s.products);
   const [isSubmitted, setIsSubmitted] = useState(false);
   // 1. Define your form.
@@ -40,16 +43,16 @@ const CartForm = () => {
       color: "success",
       variant: "flat",
     });
-    const newItem = {
+    const newItem: Info = {
       name: values.name,
-      products: cartProducts,
+      province: "",
     };
 
     setInfo(newItem);
   }
 
   return (
-    <section className="mx-auto mt-5 w-10/12">
+    <section className="mx-auto w-10/12">
       <Form {...form}>
         <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
@@ -81,7 +84,11 @@ const CartForm = () => {
                 }
                 fullWidth={true}
                 variant="ghost"
-                onPress={() => setIsSubmitted(false)}
+                onPress={() => {
+                  setIsSubmitted(false);
+                  form.reset();
+                  clearInfo();
+                }}
               >
                 Volver a enviar
               </Button>
