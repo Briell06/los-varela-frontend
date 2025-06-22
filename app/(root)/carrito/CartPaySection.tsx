@@ -31,7 +31,7 @@ export const CartPaySection = () => {
         cartProducts
           .map(
             ({ product, amount }) =>
-              `- *${amount} X ${product.title}* = ${(amount * product.price).toFixed(2)} USD%0A`,
+              `- *${amount} X ${product.title}* = ${(amount * product.price).toFixed(2)} USD`,
           )
           .join("%0A"),
         null,
