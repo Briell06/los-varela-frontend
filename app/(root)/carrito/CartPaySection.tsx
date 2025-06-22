@@ -2,6 +2,7 @@
 
 import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Link } from "@heroui/link";
 import {
   Table,
   TableBody,
@@ -10,11 +11,10 @@ import {
   TableHeader,
   TableRow,
 } from "@heroui/table";
+import { addToast } from "@heroui/toast";
 import { IconLabel } from "@tabler/icons-react";
 import { Trash } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { Link } from "@heroui/link";
-import { addToast } from "@heroui/toast";
 
 import CartProductsContext from "@/contexts/CartProductContext";
 import SendInformationContext from "@/contexts/SendInformationContext";
@@ -31,7 +31,7 @@ export const CartPaySection = () => {
         cartProducts
           .map(
             ({ product, amount }) =>
-              `- *${amount} X ${product.title}* = ${amount * product.price} USD%0A`,
+              `- *${amount} X ${product.title}* = ${(amount * product.price).toFixed(2)} USD%0A`,
           )
           .join("%0A"),
         null,
@@ -51,7 +51,7 @@ export const CartPaySection = () => {
       ` (${info.locationPrice} USD)` +
       "%0A------------------------------------------------%0A%0A" +
       "*Total* = " +
-      `*${cartProducts.reduce((acc, curr) => curr.product.price * curr.amount + acc, 0) + (info.locationPrice ?? 0)} USD*`
+      `*${(cartProducts.reduce((acc, curr) => curr.product.price * curr.amount + acc, 0) + (info.locationPrice ?? 0)).toFixed(2)} USD*`
     )
       .replace("\n", "%0A")
       .replace(",", "%0A")
