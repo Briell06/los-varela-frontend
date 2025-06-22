@@ -61,7 +61,7 @@ export const CartPaySection = () => {
 
   return (
     <Card
-      className={`mx-auto grid h-fit w-full max-w-2xl gap-5 space-y-5 rounded p-5`}
+      className={`mx-auto grid h-fit w-full max-w-2xl gap-5 space-y-5 rounded`}
     >
       <CardHeader className={"flex gap-2 text-xl"}>
         <IconLabel className={"-rotate-[140deg]"} />
@@ -98,7 +98,7 @@ export const CartPaySection = () => {
         </Table>
       </CardBody>
       <CardBody>
-        <Table fullWidth={true} radius={"none"}>
+        <Table radius={"none"}>
           <TableHeader>
             <TableColumn>Información adicional</TableColumn>
             <TableColumn>
@@ -181,12 +181,24 @@ export const CartPaySection = () => {
                       variant: "flat",
                     });
                   }
-                : undefined
+                : cartProducts.length === 0
+                  ? () =>
+                      addToast({
+                        title: "Carrito vacío",
+                        description: "Por favor, agregue productos al carrito",
+                        color: "danger",
+                        variant: "flat",
+                      })
+                  : undefined
             }
           >
-            Realizar Compra por Whatsapp
+            Realizar Compra por WhatsApp
           </Button>
         }
+        <p className="text-muted-foreground text-center text-sm">
+          Al hacer clic en &quot;Realizar Compra por WhatsApp&quot;, no
+          modifique el mensaje generado automáticamente.
+        </p>
       </CardFooter>
     </Card>
   );
