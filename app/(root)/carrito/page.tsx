@@ -1,4 +1,4 @@
-import CartPaySection from "@/app/(root)/carrito/CartPaySection";
+import { CartPaySection } from "@/app/(root)/carrito/CartPaySection";
 import CartProductCardSection from "@/app/(root)/carrito/CartProductCardSection";
 import CartValidationForm from "@/app/(root)/carrito/CartValidationForm";
 import HeaderLink from "@/components/HeaderLink";

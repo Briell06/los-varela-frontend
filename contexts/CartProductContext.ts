@@ -1,5 +1,6 @@
 import { produce } from "immer";
 import { create } from "zustand";
+import { mountStoreDevtool } from "simple-zustand-devtools";
 
 import { CartProduct } from "@/types";
 
@@ -54,5 +55,8 @@ const CartProductsContext = create<CartProductZustandProps>((set) => ({
       ),
     })),
 }));
+
+if (process.env.NODE_ENV === "development")
+  mountStoreDevtool("Products Store", CartProductsContext);
 
 export default CartProductsContext;

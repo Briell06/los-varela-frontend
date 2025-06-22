@@ -108,9 +108,9 @@ const Footer = () => {
             <Link
               isExternal
               className="mx-auto text-center text-default-foreground hover:underline"
-              href="tel:+1234567890"
+              href="tel:+53 51326441"
             >
-              +1 234 567 890
+              +53 51326441
             </Link>
           </div>
         </div>
