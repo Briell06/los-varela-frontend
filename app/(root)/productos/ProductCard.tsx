@@ -17,7 +17,6 @@ const ProductCard = ({ product }: Props) => {
         <Image
           alt={`Imagen del producto`}
           height={400}
-          priority={true}
           src={product.image}
           width={500}
         />
