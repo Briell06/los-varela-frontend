@@ -24,7 +24,7 @@ export const CartPaySection = () => {
   const clearCart = CartProductsContext((s) => s.clearCart);
   const info = SendInformationContext((s) => s.info);
 
-  const whatsappMessage = () => {
+  const generateWhatsAppMessage = () => {
     return (
       "*Resumen de la compra*%0A%0A-------Compra---------------------------------%0A" +
       JSON.stringify(
@@ -157,7 +157,7 @@ export const CartPaySection = () => {
               info.cubaPhoneNumber !== undefined &&
               info.locationName !== undefined &&
               info.locationPrice !== undefined
-                ? `https://wa.me/+5351326441?text=${whatsappMessage()}`
+                ? `https://wa.me/+5351326441?text=${generateWhatsAppMessage()}`
                 : undefined
             }
             isExternal={
