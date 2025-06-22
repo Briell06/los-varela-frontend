@@ -1,5 +1,6 @@
 import { produce } from "immer";
 import { create } from "zustand";
+import { mountStoreDevtool } from "simple-zustand-devtools";
 
 import { CartProduct } from "@/types";
 
@@ -16,15 +17,15 @@ const CartProductsContext = create<CartProductZustandProps>((set) => ({
 
   addProduct: (product: CartProduct, products: CartProduct[]) => {
     const productExists = products.find(
-      (p) => p.product.id === product.product.id,
+      (p: CartProduct) => p.product.id === product.product.id,
     );
 
     if (productExists) {
       set((state) => ({
-        products: state.products.map((p) =>
+        products: state.products.map((p: CartProduct) =>
           p.product.id === product.product.id
             ? produce(p, (draft) => {
-                draft.amount += p.amount;
+                draft.amount += product.amount;
               })
             : p,
         ),
@@ -34,25 +35,28 @@ const CartProductsContext = create<CartProductZustandProps>((set) => ({
     }
   },
 
-  removeProduct: (productId) =>
+  removeProduct: (productId: string) =>
     set((state) => ({
       products: state.products.filter(
-        (product) => product.product.id !== productId,
+        (product: CartProduct) => product.product.id !== productId,
       ),
     })),
 
   clearCart: () => set(() => ({ products: [] })),
 
-  updateProductQuantity: (productId, quantity) =>
+  updateProductQuantity: (productId: string, quantity: number) =>
     set((state) => ({
-      products: state.products.map((product) =>
+      products: state.products.map((product: CartProduct) =>
         product.product.id === productId
           ? produce(product, (draft) => {
-              draft.amount = draft.amount + quantity;
+              draft.amount += quantity;
             })
           : product,
       ),
     })),
 }));
+
+if (process.env.NODE_ENV === "development")
+  mountStoreDevtool("Products Store", CartProductsContext);
 
 export default CartProductsContext;

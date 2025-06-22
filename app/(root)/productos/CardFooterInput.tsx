@@ -53,11 +53,11 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
         "flex w-full items-center justify-between gap-1",
       )}
     >
-      <div className="flex items-center justify-start gap-1">
+      <div className="flex shrink items-center justify-start gap-1">
         <Button
           isIconOnly
           aria-label="Disminuir cantidad"
-          className="rounded-full"
+          className="shrink rounded-full"
           color="primary"
           variant={"bordered"}
           onPress={
@@ -73,7 +73,7 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
         </Button>
         <Input
           aria-label="Cantidad"
-          className="mx-auto max-w-16"
+          className="mx-auto max-w-16 shrink"
           classNames={{
             input: "text-center",
           }}
@@ -91,7 +91,7 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
         <Button
           isIconOnly
           aria-label="Aumentar cantidad"
-          className="rounded-full"
+          className="shrink rounded-full"
           color="primary"
           variant={"bordered"}
           onPress={
@@ -105,7 +105,7 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
       </div>
       {eliminate ? (
         <Button
-          className="w-11/12"
+          className="w-10/12"
           color="danger"
           startContent={<Trash />}
           variant="ghost"
@@ -114,11 +114,13 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
           Eliminar del carrito
         </Button>
       ) : (
-        <ShoppingCartButton
-          amount={amount}
-          className={cn(col && "w-full flex-1")}
-          product={product}
-        />
+        <div className="grow-1">
+          <ShoppingCartButton
+            amount={amount}
+            className={cn(col && "w-full")}
+            product={product}
+          />
+        </div>
       )}
     </div>
   );

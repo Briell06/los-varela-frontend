@@ -1,13 +1,14 @@
 "use client";
 
 import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
 import { addToast } from "@heroui/toast";
+import { Input } from "@heroui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, ChevronRight, X } from "lucide-react";
+import { Check, ChevronRight, MapPin, X } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 
 import { formSchema } from "@/components/form-schema";
 import {
@@ -15,18 +16,27 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import CartProductsContext from "@/contexts/CartProductContext";
+import SendInformationContext, {
+  Info,
+} from "@/contexts/SendInformationContext";
+import { locations } from "@/config/site";
 
 const CartForm = () => {
+  const setInfo = SendInformationContext((s) => s.setInfo);
+  const clearInfo = SendInformationContext((s) => s.clearInfo);
   const cartProducts = CartProductsContext((s) => s.products);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // 1. Define your form.
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      usaPhoneNumber: undefined,
+      locationPrice: "",
+      cubaPhoneNumber: undefined,
     },
   });
 
@@ -38,29 +48,40 @@ const CartForm = () => {
       color: "success",
       variant: "flat",
     });
-    const newItem = {
-      name: values.name,
-      products: cartProducts,
+    const newItem: Info = {
+      usaPhoneNumber: Number(values.usaPhoneNumber),
+      cubaPhoneNumber: Number(
+        values.cubaPhoneNumber.replace("-", "").replace("+53", ""),
+      ),
+      locationName: values.locationPrice,
+      locationPrice: locations.find((loc) => loc.name === values.locationPrice)!
+        .price,
     };
 
-    console.log(newItem);
+    setInfo(newItem);
   }
 
+  // @ts-ignore
   return (
-    <section className="mx-auto mt-5 w-10/12">
+    <section className="mx-auto w-10/12">
       <Form {...form}>
         <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
-            name="name"
+            name="usaPhoneNumber"
             render={({ field }) => (
               <FormItem>
+                <FormLabel className="text-md text-primary">
+                  Numero de teléfono
+                </FormLabel>
                 <FormControl>
                   <Input
-                    autoComplete="name"
+                    color="primary"
+                    description="Este será el número que utilizaremos en caso de contactarlo"
                     disabled={isSubmitted}
-                    label="Nombre completo"
-                    labelPlacement={"outside"}
+                    placeholder={"(123) 456-7890"}
+                    startContent="+1"
+                    variant="underlined"
                     {...field}
                   />
                 </FormControl>
@@ -68,7 +89,61 @@ const CartForm = () => {
               </FormItem>
             )}
           />
-
+          <FormField
+            control={form.control}
+            name="cubaPhoneNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md text-primary">
+                  Numero de teléfono de quien recibe el pedido
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    color="primary"
+                    disabled={isSubmitted}
+                    placeholder="55123456"
+                    startContent="+53"
+                    type="number"
+                    variant="underlined"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage className="text-danger" />
+              </FormItem>
+            )}
+          />{" "}
+          <FormField
+            control={form.control}
+            name="locationPrice"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md text-primary">
+                  Seleccione la ubicación donde se entregará el pedido
+                </FormLabel>
+                <FormControl>
+                  <Autocomplete
+                    classNames={{ selectorButton: "text-foreground" }}
+                    color="primary"
+                    description="Si no encuentra su ubicacion es debido a que la misma aun no se encuentra disponible"
+                    disabled={isSubmitted}
+                    placeholder={"Seleccione una ubicación"}
+                    selectedKey={field.value}
+                    startContent={<MapPin />}
+                    variant="underlined"
+                    onSelectionChange={field.onChange}
+                    {...field}
+                  >
+                    {locations.map((location) => (
+                      <AutocompleteItem key={location.name} variant="shadow">
+                        {location.name}
+                      </AutocompleteItem>
+                    ))}
+                  </Autocomplete>
+                </FormControl>
+                <FormMessage className="text-danger" />
+              </FormItem>
+            )}
+          />
           <div className="mx-auto flex flex-col items-center justify-center gap-2">
             {isSubmitted && (
               <Button
@@ -78,8 +153,12 @@ const CartForm = () => {
                     : "primary"
                 }
                 fullWidth={true}
+                startContent={<X />}
                 variant="ghost"
-                onPress={() => setIsSubmitted(false)}
+                onPress={() => {
+                  setIsSubmitted(false);
+                  clearInfo();
+                }}
               >
                 Volver a enviar
               </Button>
