@@ -38,7 +38,7 @@ const CartProductCardSection = () => {
                   )}
                 </h3>
                 <p className="mt-2 text-2xl font-bold text-primary">
-                  {product.price * amount}
+                  {(product.price * amount).toFixed(2)}
                   USD
                 </p>
               </CardBody>

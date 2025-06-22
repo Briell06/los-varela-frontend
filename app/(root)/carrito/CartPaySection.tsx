@@ -31,7 +31,7 @@ export const CartPaySection = () => {
         cartProducts
           .map(
             ({ product, amount }) =>
-              `- *${amount} X ${product.title}* = ${amount * product.price} USD`,
+              `- *${amount} X ${product.title}* = ${amount * product.price} USD%0A`,
           )
           .join("%0A"),
         null,
@@ -68,15 +68,17 @@ export const CartPaySection = () => {
         <h3>Resumen de la orden</h3>
       </CardHeader>
       <CardBody>
-        <Table radius={"none"}>
+        <Table fullWidth={true} radius={"none"}>
           <TableHeader>
             <TableColumn>Información</TableColumn>
-            <TableColumn>Detalles proporcionados</TableColumn>
+            <TableColumn>
+              <></>
+            </TableColumn>
           </TableHeader>
           <TableBody>
             <TableRow>
               <TableCell>Teléfono de Estados Unidos:</TableCell>
-              <TableCell>
+              <TableCell className="whitespace-nowrap">
                 {SendInformationContext((s) => s.info.usaPhoneNumber)}
               </TableCell>
             </TableRow>
@@ -96,7 +98,7 @@ export const CartPaySection = () => {
         </Table>
       </CardBody>
       <CardBody>
-        <Table radius={"none"}>
+        <Table fullWidth={true} radius={"none"}>
           <TableHeader>
             <TableColumn>Información adicional</TableColumn>
             <TableColumn>
@@ -121,7 +123,7 @@ export const CartPaySection = () => {
             </TableRow>
             <TableRow key={3}>
               <TableCell className="text-lg font-bold">Total</TableCell>
-              <TableCell className="text-lg font-bold text-success">
+              <TableCell className="whitespace-nowrap text-lg font-bold text-success">
                 {(
                   cartProducts.reduce(
                     (acc, curr) => acc + curr.amount * curr.product.price,
@@ -135,7 +137,7 @@ export const CartPaySection = () => {
       </CardBody>
       <CardFooter className="flex-col justify-center gap-2">
         <Button
-          className="w-10/12"
+          className="w-full"
           color={"danger"}
           startContent={<Trash />}
           variant="ghost"
@@ -148,7 +150,7 @@ export const CartPaySection = () => {
         {
           <Button
             as={Link}
-            className="w-10/12 font-semibold"
+            className="w-full font-semibold"
             color="primary"
             href={
               info.usaPhoneNumber !== undefined &&

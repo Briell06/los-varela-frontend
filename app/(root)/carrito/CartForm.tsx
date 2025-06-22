@@ -81,6 +81,7 @@ const CartForm = () => {
                     disabled={isSubmitted}
                     placeholder={"(123) 456-7890"}
                     startContent="+1"
+                    type="tel"
                     variant="underlined"
                     {...field}
                   />
@@ -103,7 +104,7 @@ const CartForm = () => {
                     disabled={isSubmitted}
                     placeholder="55123456"
                     startContent="+53"
-                    type="number"
+                    type="tel"
                     variant="underlined"
                     {...field}
                   />

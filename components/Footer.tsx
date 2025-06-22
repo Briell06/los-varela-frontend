@@ -98,9 +98,9 @@ const Footer = () => {
             <Link
               isExternal
               className="mx-auto text-center text-default-foreground hover:underline"
-              href="mailto:info@losvarela.com"
+              href="mailto:losvarela51326441@gmail.com"
             >
-              info@losvarela.com
+              losvarela51326441@gmail.com
             </Link>
           </div>
           <div className="mx-auto flex items-center justify-center gap-2 md:gap-3 lg:gap-4">
