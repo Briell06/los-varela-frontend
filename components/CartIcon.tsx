@@ -20,11 +20,12 @@ const CartIcon = () => {
     >
       <Button
         isIconOnly
+        aria-label="Carrito"
         as={products.length > 0 ? Link : undefined}
         href={products.length > 0 ? "/carrito" : undefined}
         variant="light"
       >
-        <ShoppingCart />
+        <ShoppingCart aria-label="carrito" />
       </Button>
     </Badge>
   );

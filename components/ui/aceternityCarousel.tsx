@@ -1,10 +1,10 @@
 "use client";
+import { Button } from "@heroui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
-import { Button } from "@heroui/button";
-import Link from "next/link";
 
 interface SlideData {
   title: string;
@@ -222,13 +222,14 @@ export function Carousel({ slides }: CarouselProps) {
         }}
       >
         {slides.map((slide, index) => (
-          <Slide
-            key={index}
-            current={current}
-            handleSlideClick={handleSlideClick}
-            index={index}
-            slide={slide}
-          />
+          <li key={index}>
+            <Slide
+              current={current}
+              handleSlideClick={handleSlideClick}
+              index={index}
+              slide={slide}
+            />
+          </li>
         ))}
       </ul>
 

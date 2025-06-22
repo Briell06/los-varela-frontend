@@ -214,6 +214,7 @@ export function PlaceholdersAndVanishInput({
       />
 
       <button
+        aria-label="Enviar"
         className="absolute right-2 top-1/2 z-50 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black transition duration-200 disabled:bg-gray-100 dark:bg-zinc-900 dark:disabled:bg-zinc-800"
         disabled={!value}
         type="submit"

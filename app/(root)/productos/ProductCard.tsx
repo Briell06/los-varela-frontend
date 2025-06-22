@@ -1,6 +1,6 @@
 import { Card, CardBody, CardFooter } from "@heroui/card";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import CardFooterInput from "./CardFooterInput";
 
@@ -29,7 +29,7 @@ const ProductCard = ({ product }: Props) => {
             {product.price.toFixed(2)} UDS
           </p>
           {product.fake_price && (
-            <p className="text-lg font-bold text-primary-300 line-through">
+            <p className="text-lg font-bold text-primary line-through">
               {product.fake_price.toFixed(2)} USD
             </p>
           )}
