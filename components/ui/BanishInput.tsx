@@ -197,6 +197,7 @@ export function PlaceholdersAndVanishInput({
       />
       <input
         ref={inputRef}
+        aria-label="Buscar"
         className={cn(
           "relative z-50 h-full w-full rounded-full border-none bg-transparent pl-4 pr-20 text-sm text-black focus:outline-none focus:ring-0 dark:text-white sm:pl-10 sm:text-base",
           animating && "text-transparent dark:text-transparent",
