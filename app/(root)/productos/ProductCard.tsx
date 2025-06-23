@@ -35,7 +35,7 @@ const ProductCard = ({ product }: Props) => {
         </div>
       </CardBody>
       <CardFooter>
-        <CardFooterInput product={product} />
+        <CardFooterInput col product={product} />
       </CardFooter>
     </Card>
   );

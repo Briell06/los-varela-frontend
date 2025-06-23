@@ -114,7 +114,7 @@ const CardFooterInput = ({ product, col, eliminate }: Props) => {
           Eliminar del carrito
         </Button>
       ) : (
-        <div className="grow-1">
+        <div className={cn(col && "w-10/12", "grow-1")}>
           <ShoppingCartButton
             amount={amount}
             className={cn(col && "w-full")}
