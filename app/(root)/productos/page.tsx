@@ -12,7 +12,7 @@ interface Props {
 }
 
 const ProductsPage = async ({ searchParams }: Props) => {
-  const query = (await searchParams).query;
+  const query = searchParams.query;
   const products = await productsQuery(query);
 
   return (
