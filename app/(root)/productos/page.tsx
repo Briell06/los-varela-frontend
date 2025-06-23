@@ -8,11 +8,11 @@ import HeaderLink from "@/components/HeaderLink";
 import { productsQuery } from "@/config/queries";
 
 interface Props {
-  searchParams: { query: string };
+  searchParams: Promise<{ query?: string }>;
 }
 
 const ProductsPage = async ({ searchParams }: Props) => {
-  const query = searchParams.query;
+  const query = (await searchParams).query;
   const products = await productsQuery(query);
 
   return (
