@@ -25,7 +25,7 @@ const ProductCard = ({ product }: Props) => {
         <h2 className="text-2xl font-bold">{product.title}</h2>
         <div className="flex gap-2">
           <p className="relative text-2xl font-bold text-primary">
-            {product.price.toFixed(2)} UDS
+            {product.price.toFixed(2)} USD
           </p>
           {product.fake_price && (
             <p className="text-lg font-bold text-primary line-through">
