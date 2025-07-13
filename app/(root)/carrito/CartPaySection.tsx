@@ -160,6 +160,7 @@ export const CartPaySection = () => {
                 ? `https://wa.me/+5351326441?text=${generateWhatsAppMessage()}`
                 : undefined
             }
+            isDisabled={cartProducts.length === 0}
             isExternal={
               info.usaPhoneNumber !== undefined &&
               info.cubaPhoneNumber !== undefined &&
