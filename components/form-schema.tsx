@@ -20,4 +20,12 @@ export const formSchema = z.object({
     locations.map((loc) => loc.name) as [string, ...string[]],
     { message: "Seleccione una ubicación" },
   ),
+
+  address: z
+    .string({ message: "Por favor, ingrese su dirección" })
+    .refine((val) => !val.includes("#"), {
+      message: 'El caracter "#" no es legible, utilize "No" en su lugar',
+    }),
+
+  name: z.string({ message: "Por favor, ingrese su dirección" }),
 });

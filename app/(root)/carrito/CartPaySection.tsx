@@ -49,7 +49,13 @@ export const CartPaySection = () => {
       "*Ubicación:* " +
       JSON.stringify(info.locationName) +
       ` (${info.locationPrice} USD)` +
-      "%0A------------------------------------------------%0A%0A" +
+      "%0A------------------------------------------------%0A" +
+      "*Nombre:* " +
+      JSON.stringify(info.name) +
+      "%0A" +
+      "*Dirección:* " +
+      JSON.stringify(info.address) +
+      "%0A%0A" +
       "*Total* = " +
       `*${(cartProducts.reduce((acc, curr) => curr.product.price * curr.amount + acc, 0) + (info.locationPrice ?? 0)).toFixed(2)} USD*`
     )
@@ -79,19 +85,31 @@ export const CartPaySection = () => {
             <TableRow>
               <TableCell>Teléfono de Estados Unidos:</TableCell>
               <TableCell className="whitespace-nowrap">
-                {SendInformationContext((s) => s.info.usaPhoneNumber)}
+                +1 {SendInformationContext((s) => s.info.usaPhoneNumber)}
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Teléfono de Cuba:</TableCell>
               <TableCell>
-                {SendInformationContext((s) => s.info.cubaPhoneNumber)}
+                +53 {SendInformationContext((s) => s.info.cubaPhoneNumber)}
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Ubicación:</TableCell>
               <TableCell>
                 {SendInformationContext((s) => s.info.locationName)}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Dirección:</TableCell>
+              <TableCell>
+                {SendInformationContext((s) => s.info.address)}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Nombre:</TableCell>
+              <TableCell>
+                {SendInformationContext((s) => s.info.name)}
               </TableCell>
             </TableRow>
           </TableBody>

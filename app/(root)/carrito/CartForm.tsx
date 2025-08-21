@@ -1,14 +1,14 @@
 "use client";
 
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 import { Button } from "@heroui/button";
-import { addToast } from "@heroui/toast";
 import { Input } from "@heroui/input";
+import { addToast } from "@heroui/toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, ChevronRight, MapPin, X } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 
 import { formSchema } from "@/components/form-schema";
 import {
@@ -19,11 +19,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { locations } from "@/config/site";
 import CartProductsContext from "@/contexts/CartProductContext";
 import SendInformationContext, {
   Info,
 } from "@/contexts/SendInformationContext";
-import { locations } from "@/config/site";
 
 const CartForm = () => {
   const setInfo = SendInformationContext((s) => s.setInfo);
@@ -35,8 +35,10 @@ const CartForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       usaPhoneNumber: undefined,
-      locationPrice: "",
       cubaPhoneNumber: undefined,
+      locationPrice: "",
+      name: undefined,
+      address: undefined,
     },
   });
 
@@ -56,6 +58,8 @@ const CartForm = () => {
       locationName: values.locationPrice,
       locationPrice: locations.find((loc) => loc.name === values.locationPrice)!
         .price,
+      address: values.address,
+      name: values.name,
     };
 
     setInfo(newItem);
@@ -112,7 +116,7 @@ const CartForm = () => {
                 <FormMessage className="text-danger" />
               </FormItem>
             )}
-          />{" "}
+          />
           <FormField
             control={form.control}
             name="locationPrice"
@@ -125,7 +129,7 @@ const CartForm = () => {
                   <Autocomplete
                     classNames={{ selectorButton: "text-foreground" }}
                     color="primary"
-                    description="Si no encuentra su ubicacion es debido a que la misma aun no se encuentra disponible"
+                    description="Si no encuentra su ubicación es debido a que la misma aún no se encuentra disponible"
                     disabled={isSubmitted}
                     placeholder={"Seleccione una ubicación"}
                     selectedKey={field.value}
@@ -140,6 +144,50 @@ const CartForm = () => {
                       </AutocompleteItem>
                     ))}
                   </Autocomplete>
+                </FormControl>
+                <FormMessage className="text-danger" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="address"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md text-primary">
+                  Dirección a entregar
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    color="primary"
+                    disabled={isSubmitted}
+                    placeholder={"Ave 12 #3456 e/7 y 8"}
+                    type="text"
+                    variant="underlined"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage className="text-danger" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-md text-primary">
+                  Nombre de la persona que recibirá el envío
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    color="primary"
+                    disabled={isSubmitted}
+                    placeholder={"John Doe"}
+                    type="text"
+                    variant="underlined"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage className="text-danger" />
               </FormItem>

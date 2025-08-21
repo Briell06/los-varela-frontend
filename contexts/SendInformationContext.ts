@@ -1,11 +1,13 @@
-import { create } from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
+import { create } from "zustand";
 
 export interface Info {
   usaPhoneNumber: number | undefined;
   cubaPhoneNumber: number | undefined;
   locationName: string | undefined;
   locationPrice: number | undefined;
+  address: string | undefined;
+  name: string | undefined;
 }
 
 interface SendInformationZustandProps {
@@ -20,6 +22,8 @@ const sendInfoContext = create<SendInformationZustandProps>((set) => ({
     cubaPhoneNumber: undefined,
     locationName: undefined,
     locationPrice: undefined,
+    address: undefined,
+    name: undefined,
   },
   setInfo: (info: Info) => set({ info }),
   clearInfo: () =>
@@ -29,6 +33,8 @@ const sendInfoContext = create<SendInformationZustandProps>((set) => ({
         cubaPhoneNumber: undefined,
         locationPrice: undefined,
         locationName: undefined,
+        address: undefined,
+        name: undefined,
       },
     }),
 }));
