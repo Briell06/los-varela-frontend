@@ -1,10 +1,12 @@
 import { Carousel } from "./ui/aceternityCarousel";
 
-import { categoriesQuery } from "@/config/queries";
+import { endpoint } from "@/config/site";
 import { Category } from "@/types";
 
 const AceternityCategoryCarousel = async () => {
-  const categories = await categoriesQuery();
+  const categories = await fetch(`${endpoint}categories`, {
+    next: { revalidate: 300 },
+  }).then((res): Promise<Category[]> => res.json());
 
   const slides = categories.map((category: Category) => {
     return {

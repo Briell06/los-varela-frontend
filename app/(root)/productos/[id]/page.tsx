@@ -12,7 +12,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ProductByIdQuery, productsQuery } from "@/config/queries";
+import { endpoint } from "@/config/site";
+import { Product } from "@/types";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -20,8 +21,15 @@ interface Props {
 
 const productDetailPage = async ({ params }: Props) => {
   const id = (await params).id;
-  const product = await ProductByIdQuery(id);
-  const products = await productsQuery(product.category);
+  const product: Product = await await fetch(`${endpoint}products/${id}`, {
+    next: { revalidate: 300 },
+  }).then((res) => res.json());
+  const products: Product[] = await fetch(
+    `${endpoint}products?query=${product.category}`,
+    {
+      next: { revalidate: 300 },
+    },
+  ).then((res) => res.json());
 
   return (
     <>
@@ -91,7 +99,12 @@ const productDetailPage = async ({ params }: Props) => {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const product = await ProductByIdQuery((await params).id);
+  const product = await await fetch(
+    `${endpoint}products/${(await params).id}`,
+    {
+      next: { revalidate: 300 },
+    },
+  ).then((res) => res.json());
 
   return {
     title: product ? `Producto: ${product.title}` : "Producto",
