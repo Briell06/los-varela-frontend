@@ -1,26 +1,31 @@
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Skeleton } from "@heroui/skeleton";
 
-import AceternityCategoryCarousel from "@/components/AceternityCategoryCarousel";
-
 const skeletonArr = [1, 2, 3, 4, 5, 6];
 
 export default function Loading() {
   return (
     <>
       <div className="mx-auto flex items-center justify-center text-center">
-        <Skeleton className="mx-auto flex h-12 w-44 items-center justify-center gap-2 rounded-md" />
+        <Skeleton className="mx-auto flex h-12 w-44 items-center justify-center gap-2 rounded-xl" />
       </div>
 
-      <div className="relative min-h-fit w-full overflow-hidden py-5 pb-16 md:mx-auto">
-        <AceternityCategoryCarousel />
+      <div className="mt-5 flex w-full flex-col gap-y-2 md:mx-auto">
+        <div className="flex justify-center gap-10 md:justify-end">
+          <Skeleton className="h-[60vmin] w-[60vmin] rounded-lg md:h-[40vmin] md:w-[40vmin]" />
+          <Skeleton className="h-[60vmin] w-[60vmin] rounded-lg max-md:hidden md:h-[40vmin] md:w-[40vmin]" />
+        </div>
+        <div className="flex justify-center gap-4">
+          <Skeleton className="h-10 w-10 rounded-full" />
+          <Skeleton className="h-10 w-10 rounded-full" />
+        </div>
       </div>
 
-      <div className="mt-2 flex items-center justify-center">
-        <Skeleton className="h-12 w-[80%] md:w-[30%]" />
+      <div className="mt-5 flex items-center justify-center">
+        <Skeleton className="h-12 w-[80%] rounded-xl md:w-[30%]" />
       </div>
 
-      <section className="mt-5 grid gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         {skeletonArr.map((i) => (
           <Card key={i} className="h-[565px]">
             <Skeleton className="h-[50%] w-full rounded" />
