@@ -93,6 +93,8 @@ export const locations: locationType[] = [
   },
 ];
 
+export const endpoint = "https://losvarelaadmin.pythonanywhere.com/";
+
 export const siteConfig = {
   name: "Los Varela",
   description: "Una aplicación para enviar combos a sus familiares en Cuba.",

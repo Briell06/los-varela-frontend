@@ -5,7 +5,8 @@ import { MdOutlineCategory } from "react-icons/md";
 import ProductCard from "@/app/(root)/productos/ProductCard";
 import AceternityCategoryCarousel from "@/components/AceternityCategoryCarousel";
 import HeaderLink from "@/components/HeaderLink";
-import { productsQuery } from "@/config/queries";
+import { endpoint } from "@/config/site";
+import { Product } from "@/types";
 
 interface Props {
   searchParams: Promise<{ query?: string }>;
@@ -13,7 +14,9 @@ interface Props {
 
 const ProductsPage = async ({ searchParams }: Props) => {
   const query = (await searchParams).query;
-  const products = await productsQuery(query);
+  const products: Product[] = await fetch(
+    `${endpoint}products${query ? `?query=${query}` : ""}`,
+  ).then((res) => res.json());
 
   return (
     <>
