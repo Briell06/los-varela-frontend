@@ -16,6 +16,7 @@ const ProductsPage = async ({ searchParams }: Props) => {
   const query = (await searchParams).query;
   const products: Product[] = await fetch(
     `${endpoint}products${query ? `?query=${query}` : ""}`,
+    { next: { revalidate: 300 } },
   ).then((res) => res.json());
 
   return (
