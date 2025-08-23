@@ -4,9 +4,9 @@ import { endpoint } from "@/config/site";
 import { Category } from "@/types";
 
 const AceternityCategoryCarousel = async () => {
-  const categories = await fetch(`${endpoint}categories`, {
-    next: { revalidate: 300 },
-  }).then((res): Promise<Category[]> => res.json());
+  const categories = await fetch(`${endpoint}categories`).then(
+    (res): Promise<Category[]> => res.json(),
+  );
 
   const slides = categories.map((category: Category) => {
     return {

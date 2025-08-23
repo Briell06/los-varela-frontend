@@ -21,14 +21,11 @@ interface Props {
 
 const productDetailPage = async ({ params }: Props) => {
   const id = (await params).id;
-  const product: Product = await await fetch(`${endpoint}products/${id}`, {
-    next: { revalidate: 300 },
-  }).then((res) => res.json());
+  const product: Product = await await fetch(`${endpoint}products/${id}`).then(
+    (res) => res.json(),
+  );
   const products: Product[] = await fetch(
     `${endpoint}products?query=${product.category}`,
-    {
-      next: { revalidate: 300 },
-    },
   ).then((res) => res.json());
 
   return (
@@ -101,9 +98,6 @@ const productDetailPage = async ({ params }: Props) => {
 export async function generateMetadata({ params }: Props) {
   const product = await await fetch(
     `${endpoint}products/${(await params).id}`,
-    {
-      next: { revalidate: 300 },
-    },
   ).then((res) => res.json());
 
   return {
