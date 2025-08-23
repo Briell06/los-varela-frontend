@@ -21,7 +21,7 @@ interface Props {
 
 const productDetailPage = async ({ params }: Props) => {
   const id = (await params).id;
-  const product: Product = await await fetch(`${endpoint}products/${id}`).then(
+  const product: Product = await fetch(`${endpoint}products/${id}`).then(
     (res) => res.json(),
   );
   const products: Product[] = await fetch(
@@ -96,9 +96,9 @@ const productDetailPage = async ({ params }: Props) => {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const product = await await fetch(
-    `${endpoint}products/${(await params).id}`,
-  ).then((res) => res.json());
+  const product = await fetch(`${endpoint}products/${(await params).id}`).then(
+    (res) => res.json(),
+  );
 
   return {
     title: product ? `Producto: ${product.title}` : "Producto",
