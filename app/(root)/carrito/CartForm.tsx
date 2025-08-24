@@ -6,7 +6,7 @@ import { Input } from "@heroui/input";
 import { addToast } from "@heroui/toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, ChevronRight, MapPin, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -26,6 +26,7 @@ import SendInformationContext, {
 } from "@/contexts/SendInformationContext";
 
 const CartForm = () => {
+  const info = SendInformationContext((s) => s.info);
   const setInfo = SendInformationContext((s) => s.setInfo);
   const clearInfo = SendInformationContext((s) => s.clearInfo);
   const cartProducts = CartProductsContext((s) => s.products);
@@ -34,13 +35,25 @@ const CartForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      usaPhoneNumber: undefined,
-      cubaPhoneNumber: undefined,
-      locationPrice: "",
-      name: undefined,
-      address: undefined,
+      usaPhoneNumber: info.usaPhoneNumber?.toString(),
+      cubaPhoneNumber: info.cubaPhoneNumber?.toString(),
+      locationPrice: info.locationName,
+      name: info.name,
+      address: info.address,
     },
   });
+
+  useEffect(() => {
+    if (
+      info.usaPhoneNumber &&
+      info.cubaPhoneNumber &&
+      info.locationName &&
+      info.name &&
+      info.address
+    ) {
+      setIsSubmitted(true);
+    }
+  }, []);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitted(true);
@@ -207,6 +220,7 @@ const CartForm = () => {
                 onPress={() => {
                   setIsSubmitted(false);
                   clearInfo();
+                  form.reset();
                 }}
               >
                 Volver a enviar
