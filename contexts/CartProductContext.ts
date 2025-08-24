@@ -1,7 +1,6 @@
 import type { PersistOptions } from "zustand/middleware";
 
 import { produce } from "immer";
-import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -73,8 +72,5 @@ const CartProductsContext = create<CartProductZustandProps>()(
     } as PersistOptions<CartProductZustandProps>,
   ),
 );
-
-if (process.env.NODE_ENV === "development")
-  mountStoreDevtool("Products Store", CartProductsContext);
 
 export default CartProductsContext;
