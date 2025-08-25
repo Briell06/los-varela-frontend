@@ -27,7 +27,7 @@ const ProductCard = ({ product }: Props) => {
             {product.price.toFixed(2)} USD
           </p>
           {product.fake_price && (
-            <p className="text-lg font-bold text-primary/50 line-through">
+            <p className="text-lg font-bold text-danger/70 line-through">
               {product.fake_price.toFixed(2)} USD
             </p>
           )}
