@@ -208,7 +208,7 @@ export const CartPaySection = () => {
                         color: "danger",
                         variant: "flat",
                       })
-                  : () => clearCart()
+                  : undefined
             }
           >
             Realizar Compra por WhatsApp
