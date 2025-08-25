@@ -60,7 +60,7 @@ export const CartPaySection = () => {
       JSON.stringify(info.address) +
       "%0A%0A" +
       "*Total* = " +
-      `*${(cartProducts.reduce((acc, curr) => curr.product.price * curr.amount + acc, 0) + (info.locationPrice ?? 0)).toFixed(2)} USD*`
+      `*${(savedProducts.reduce((acc, curr) => curr.product.price * curr.amount + acc, 0) + (info.locationPrice ?? 0)).toFixed(2)} USD*`
     )
       .replace("\n", "%0A")
       .replace(",", "%0A")

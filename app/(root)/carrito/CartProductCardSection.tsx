@@ -22,6 +22,7 @@ const CartProductCardSection = () => {
               key={product.id}
               className="grid md:grid-cols-[1fr_3fr] md:grid-rows-2 md:items-center md:justify-center lg:h-fit"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 alt={product.title}
                 className="object-contain md:row-span-full"
