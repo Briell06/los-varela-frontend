@@ -1,5 +1,4 @@
 import { Card, CardBody, CardFooter } from "@heroui/card";
-import Image from "next/image";
 import Link from "next/link";
 
 import CardFooterInput from "./CardFooterInput";
@@ -14,11 +13,10 @@ const ProductCard = ({ product }: Props) => {
   return (
     <Card>
       <Link href={`/productos/${product.id}`}>
-        <Image
-          alt={`Imagen del producto`}
-          height={400}
+        <img
+          alt={`Imagen de ${product.title}`}
+          loading="lazy"
           src={product.image}
-          width={500}
         />
       </Link>
       <CardBody>
