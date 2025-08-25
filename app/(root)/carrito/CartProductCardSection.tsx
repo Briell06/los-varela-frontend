@@ -1,6 +1,5 @@
 "use client";
 import { Card, CardBody, CardFooter } from "@heroui/card";
-import Image from "next/image";
 
 import CardFooterInput from "@/app/(root)/productos/CardFooterInput";
 import CartProductsContext from "@/contexts/CartProductContext";
@@ -23,12 +22,10 @@ const CartProductCardSection = () => {
               key={product.id}
               className="grid md:grid-cols-[1fr_3fr] md:grid-rows-2 md:items-center md:justify-center lg:h-fit"
             >
-              <Image
+              <img
                 alt={product.title}
                 className="object-contain md:row-span-full"
-                height={400}
                 src={product.image}
-                width={500}
               />
               <CardBody className="md:justify-self-start md:text-center">
                 <h3 className="text-2xl">

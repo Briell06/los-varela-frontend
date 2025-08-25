@@ -13,6 +13,7 @@ const ProductCard = ({ product }: Props) => {
   return (
     <Card>
       <Link href={`/productos/${product.id}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt={`Imagen de ${product.title}`}
           loading="lazy"
