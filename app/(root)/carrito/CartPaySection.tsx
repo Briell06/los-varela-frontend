@@ -14,21 +14,24 @@ import {
 import { addToast } from "@heroui/toast";
 import { IconLabel } from "@tabler/icons-react";
 import { Trash } from "lucide-react";
+import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 import CartProductsContext from "@/contexts/CartProductContext";
 import SendInformationContext from "@/contexts/SendInformationContext";
+import { CartProduct } from "@/types";
 
 export const CartPaySection = () => {
   const cartProducts = CartProductsContext((s) => s.products);
   const clearCart = CartProductsContext((s) => s.clearCart);
   const info = SendInformationContext((s) => s.info);
+  const [savedProducts, setSavedProducts] = useState<CartProduct[]>([]);
 
   const generateWhatsAppMessage = () => {
     return (
       "*Resumen de la compra*%0A%0A-------Compra---------------------------------%0A" +
       JSON.stringify(
-        cartProducts
+        savedProducts
           .map(
             ({ product, amount }) =>
               `- *${amount} X ${product.title}* = ${(amount * product.price).toFixed(2)} USD`,
@@ -208,7 +211,10 @@ export const CartPaySection = () => {
                         color: "danger",
                         variant: "flat",
                       })
-                  : undefined
+                  : () => {
+                      setSavedProducts(cartProducts);
+                      clearCart();
+                    }
             }
           >
             Realizar Compra por WhatsApp
