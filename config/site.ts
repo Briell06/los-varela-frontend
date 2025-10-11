@@ -126,6 +126,6 @@ export const siteConfig = {
   socialLinks: {
     facebook: "https://facebook.com/",
     instagram: "https://instagram.com/",
-    whatsApp: "https://wa.me/",
+    whatsApp: "https://wa.me/+5351326441",
   },
 };
