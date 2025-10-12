@@ -30,7 +30,7 @@ const ShoppingCartButton = ({ product, amount, className }: Props) => {
         setIsAdded(true);
       }}
     >
-      {isAdded ? "Añadido" : "Añadir al carrito"}
+      {isAdded ? "Añadido" : "Lo Quiero!"}
     </Button>
   );
 };

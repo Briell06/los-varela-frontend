@@ -29,7 +29,7 @@ const ProductsPage = async ({ searchParams }: Props) => {
             startContent={<MdOutlineCategory />}
             variant="light"
           >
-            Categorías
+            Qué estas buscando hoy?
           </Button>
           <div className="relative min-h-fit w-full overflow-hidden py-5 pb-16 md:mx-auto">
             <AceternityCategoryCarousel />
