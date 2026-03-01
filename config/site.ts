@@ -13,7 +13,7 @@ export interface locationType {
 export const locations: locationType[] = [
   {
     name: "Los Palos",
-    price: 0.6,
+    price: 0.8,
   },
   {
     name: "Nueva Paz",
@@ -41,23 +41,23 @@ export const locations: locationType[] = [
   },
   {
     name: "Madruga",
-    price: 8,
+    price: 10.3,
   },
   {
     name: "Lote Seco",
-    price: 4.5,
+    price: 7.5,
   },
   {
     name: "La Reglita",
-    price: 4.5,
+    price: 5.0,
   },
   {
     name: "2 de Mayo",
-    price: 3,
+    price: 3.99,
   },
   {
     name: "San Nicolás",
-    price: 6,
+    price: 8,
   },
   {
     name: "La lanza",
@@ -69,15 +69,15 @@ export const locations: locationType[] = [
   },
   {
     name: "Chambolì",
-    price: 7,
+    price: 9,
   },
   {
     name: "Pipian",
-    price: 6,
+    price: 7.5,
   },
   {
     name: "Primer paso",
-    price: 3,
+    price: 4,
   },
   {
     name: "La esperanza",
@@ -85,11 +85,11 @@ export const locations: locationType[] = [
   },
   {
     name: "Central la margarita San Nicolás",
-    price: 6,
+    price: 8,
   },
   {
     name: "Central Manuel Isla Los Palos",
-    price: 0.6,
+    price: 0.8,
   },
 ];
 
